@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movie_app/src/core/constants/language_constants.dart';
 import 'package:movie_app/src/core/constants/size_constants.dart';
+import 'package:movie_app/src/core/constants/translation_constants.dart';
+import 'package:movie_app/src/core/localizations/app_localizations.dart';
 import 'package:movie_app/src/features/home/presentation/widgets/logo_widget.dart';
 import 'package:movie_app/src/features/home/presentation/widgets/navigation_drawer/navigation_drawer_expanded_list_tile.dart';
 import 'package:movie_app/src/features/home/presentation/widgets/navigation_drawer/navigation_drawer_list_item.dart';
 import 'package:movie_app/src/features/home/presentation/widgets/navigation_drawer/navigation_drawer_sublist_item.dart';
+import 'package:movie_app/src/features/languages/presentation/bloc/language_bloc/language_bloc.dart';
 import '../../../../../core/extensions/size_extension.dart';
+import '../../../../../core/extensions/string_extensions.dart';
 
 class NavigationDrawer extends StatelessWidget {
   const NavigationDrawer();
@@ -37,33 +43,34 @@ class NavigationDrawer extends StatelessWidget {
               ),
             ),
             NavigationDrawerListItem(
-              title: 'Favourite Movies',
+              title: TranslationConstants.FAVOURITEMOVIES.translate(context),
               onPressed: () {},
             ),
             NavigationDrawerExpandedListTile(
-              title: 'Languages',
-              children: [
-                NavigationDrawerSublistItem(
-                  title: 'English',
-                  onPressed: () {},
-                ),
-                NavigationDrawerSublistItem(
-                  title: 'French',
-                  onPressed: () {},
-                ),
-                NavigationDrawerSublistItem(
-                  title: 'Spanish',
-                  onPressed: () {},
-                ),
-              ],
+              title: TranslationConstants.LANGUAGES.translate(context),
+              children: LanguageConstants.languages
+                  .map(
+                    (language) => NavigationDrawerSublistItem(
+                      title: language.value,
+                      onPressed: (int index) {
+                        BlocProvider.of<LanguageBloc>(context).add(
+                            ToogleLanguageEvent(
+                                language: LanguageConstants.languages[index]));
+                      },
+                    ),
+                  )
+                  .toList(),
+              onPressed: (int index) {
+                BlocProvider.of<LanguageBloc>(context).add(ToogleLanguageEvent(
+                    language: LanguageConstants.languages[index]));
+              },
+            ),
+            NavigationDrawerListItem(
+              title: TranslationConstants.FEEDBACK.translate(context),
               onPressed: () {},
             ),
             NavigationDrawerListItem(
-              title: 'Feedback',
-              onPressed: () {},
-            ),
-            NavigationDrawerListItem(
-              title: 'About',
+              title: TranslationConstants.ABOUT.translate(context),
               onPressed: () {},
             ),
           ],

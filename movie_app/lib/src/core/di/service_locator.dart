@@ -11,6 +11,7 @@ import 'package:movie_app/src/features/home/domain/usecases/get_trending.dart';
 import 'package:movie_app/src/features/home/presentation/blocs/movie_backdrop_bloc/movie_backdrop_bloc.dart';
 import 'package:movie_app/src/features/home/presentation/blocs/movie_carousel_bloc/movie_carousel_bloc.dart';
 import 'package:movie_app/src/features/home/presentation/blocs/movie_tabbed_bloc/movie_tabbed_bloc.dart';
+import 'package:movie_app/src/features/languages/presentation/bloc/language_bloc/language_bloc.dart';
 
 final locator = GetIt.I;
 
@@ -26,7 +27,7 @@ Future setUpLocator() async {
       getPlayingNow: locator(),
     ),
   );
-
+  locator.registerSingleton<LanguageBloc>(LanguageBloc());
   //! Usecases
   locator.registerLazySingleton<GetTrending>(() => GetTrending(locator()));
   locator.registerLazySingleton<GetPopular>(() => GetPopular(locator()));
