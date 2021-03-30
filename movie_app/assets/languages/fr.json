@@ -5,7 +5,10 @@
     "about": "À propos",
     "popular": "Populaire",
     "now": "Maintenant",
-    "soon": "Bientôt"
+    "soon": "Bientôt",
+    "okay": "D'accord",
+    "aboutDescription": "Ce produit utilise l'API TMDb mais il n'est pas approuvé ou certifié par TMDb. Cette application est développée à des fins éducatives."
+
 }
 
 

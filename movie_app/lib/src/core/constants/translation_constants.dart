@@ -8,4 +8,6 @@ class TranslationConstants {
   static const String POPULAR = 'popular';
   static const String NOW = 'now';
   static const String SOON = 'soon';
+  static const String OKAY = 'okay';
+  static const String ABOUT_DESCRIPTION = 'aboutDescription';
 }
