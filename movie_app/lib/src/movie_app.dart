@@ -6,6 +6,7 @@ import 'package:movie_app/src/core/constants/language_constants.dart';
 import 'package:movie_app/src/core/di/service_locator.dart';
 import 'package:movie_app/src/core/localizations/app_localizations.dart';
 import 'package:movie_app/src/core/themes/theme_text.dart';
+import 'package:movie_app/src/core/wiredash/wiredash_widget.dart';
 import 'package:movie_app/src/features/home/presentation/pages/home_screen.dart';
 import 'package:movie_app/src/features/languages/presentation/bloc/language_bloc/language_bloc.dart';
 
@@ -16,6 +17,7 @@ class MovieApp extends StatefulWidget {
 
 class _MovieAppState extends State<MovieApp> {
   LanguageBloc _languageBloc;
+  final _navigatorKey = GlobalKey<NavigatorState>();
 
   @override
   void initState() {
@@ -36,27 +38,33 @@ class _MovieAppState extends State<MovieApp> {
       child: BlocBuilder<LanguageBloc, LanguageState>(
         builder: (context, state) {
           if (state is LanguageLoadedState) {
-            return MaterialApp(
-              title: 'Movie App',
-              theme: ThemeData(
-                unselectedWidgetColor: AppColor.royalBlue,
-                primaryColor: AppColor.vulcan,
-                accentColor: AppColor.royalBlue,
-                scaffoldBackgroundColor: AppColor.vulcan,
-                visualDensity: VisualDensity.adaptivePlatformDensity,
-                textTheme: ThemeText.getTextTheme(),
-                appBarTheme: const AppBarTheme(elevation: 0),
+            return WiredashWidget(
+              navigatorKey: _navigatorKey,
+              languageCode: state.locale.languageCode,
+              child: MaterialApp(
+                debugShowCheckedModeBanner: false,
+                navigatorKey: _navigatorKey,
+                title: 'Movie App',
+                theme: ThemeData(
+                  unselectedWidgetColor: AppColor.royalBlue,
+                  primaryColor: AppColor.vulcan,
+                  accentColor: AppColor.royalBlue,
+                  scaffoldBackgroundColor: AppColor.vulcan,
+                  visualDensity: VisualDensity.adaptivePlatformDensity,
+                  textTheme: ThemeText.getTextTheme(),
+                  appBarTheme: const AppBarTheme(elevation: 0),
+                ),
+                supportedLocales: LanguageConstants.languages
+                    .map((language) => Locale(language.code))
+                    .toList(),
+                locale: state.locale,
+                localizationsDelegates: [
+                  AppLocalizations.delegate,
+                  GlobalMaterialLocalizations.delegate,
+                  GlobalWidgetsLocalizations.delegate,
+                ],
+                home: HomeScreen(),
               ),
-              supportedLocales: LanguageConstants.languages
-                  .map((language) => Locale(language.code))
-                  .toList(),
-              locale: state.locale,
-              localizationsDelegates: [
-                AppLocalizations.delegate,
-                GlobalMaterialLocalizations.delegate,
-                GlobalWidgetsLocalizations.delegate,
-              ],
-              home: HomeScreen(),
             );
           }
           return const SizedBox.shrink();
