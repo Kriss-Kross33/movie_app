@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:dartz/dartz.dart';
 import 'package:meta/meta.dart';
 import 'package:movie_app/src/core/errors/failures/failures.dart';
@@ -37,8 +39,10 @@ class MovieRepositoryImpl extends MovieRepository {
     try {
       final movies = await getMovieCategory();
       return Right(movies);
+    } on SocketException {
+      return Left(Failure(failureType: FailureType.network));
     } on Exception {
-      return Left(Failure(errorMessage: 'Something went wrong'));
+      return Left(Failure(failureType: FailureType.api));
     }
   }
 }

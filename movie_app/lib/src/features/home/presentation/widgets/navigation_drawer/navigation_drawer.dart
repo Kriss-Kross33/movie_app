@@ -90,15 +90,17 @@ class NavigationDrawer extends StatelessWidget {
   void _showDialog(BuildContext context) {
     showDialog(
       context: context,
-      child: AppDialog(
-        title: TranslationConstants.ABOUT,
-        description: TranslationConstants.ABOUT_DESCRIPTION,
-        buttonText: TranslationConstants.OKAY,
-        child: Image.asset(
-          'assets/images/pngs/tmdb_logo.png',
-          height: Sizes.dimen_40,
-        ),
-      ),
+      builder: (context) {
+        return AppDialog(
+          title: TranslationConstants.ABOUT,
+          description: TranslationConstants.ABOUT_DESCRIPTION,
+          buttonText: TranslationConstants.OKAY,
+          child: Image.asset(
+            'assets/images/pngs/tmdb_logo.png',
+            height: Sizes.dimen_40,
+          ),
+        );
+      },
     );
   }
 }

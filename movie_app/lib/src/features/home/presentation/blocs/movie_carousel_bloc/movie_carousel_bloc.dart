@@ -28,8 +28,10 @@ class MovieCarouselBloc extends Bloc<MovieCarouselEvent, MovieCarouselState> {
     if (event is CarouselLoadEvent) {
       Either<Failure, List<MovieEntity>> eitherFailureOrMovies =
           await _getTrending();
-      yield eitherFailureOrMovies.fold((failure) => MovieCarouselErrorState(),
-          (movies) {
+      yield eitherFailureOrMovies.fold(
+          (failure) => MovieCarouselErrorState(
+                failureType: failure.failureType,
+              ), (movies) {
         movieBackdropBloc
             .add(MovieBackdropChangedEvent(movies[event.defaultIndex]));
         return MovieCarouselLoadedState(
