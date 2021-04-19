@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_app/src/core/constants/size_constants.dart';
+import 'package:movie_app/src/core/constants/translation_constants.dart';
+import 'package:movie_app/src/core/widgets/app_error_widget/app_error_widget.dart';
 import 'package:movie_app/src/features/home/presentation/blocs/movie_tabbed_bloc/movie_tabbed_bloc.dart';
 import 'package:movie_app/src/features/home/presentation/widgets/movie_tab/movie_tab_constants.dart';
 import 'package:movie_app/src/features/home/presentation/widgets/movie_tab/movie_tab_list_view_builder.dart';
 import 'package:movie_app/src/features/home/presentation/widgets/movie_tab/tab_title_widget.dart';
+
 import '../../../../../core/extensions/size_extension.dart';
+import '../../../../../core/extensions/string_extensions.dart';
 
 class MovieTabWidget extends StatefulWidget {
   @override
@@ -50,9 +54,29 @@ class _MovieTabWidgetState extends State<MovieTabWidget> {
                 ],
               ),
               if (state is MovieTabChangedState)
+                state.movies?.isEmpty ?? true
+                    ? Expanded(
+                        child: Center(
+                          child: Text(
+                            TranslationConstants.NO_MOVIES.translate(context),
+                            style: Theme.of(context).textTheme.subtitle1,
+                          ),
+                        ),
+                      )
+                    : Expanded(
+                        child: MovieListViewBuilder(
+                          movies: state.movies,
+                        ),
+                      ),
+              if (state is MovieTabLoadFailureState)
                 Expanded(
-                  child: MovieListViewBuilder(
-                    movies: state.movies,
+                  child: AppErrorWidget(
+                    onPressed: () => movieTabBloc.add(
+                      MovieTabChangedEvent(
+                        currentTabIndex: state.currentTabIndex,
+                      ),
+                    ),
+                    failureType: state.failureType,
                   ),
                 )
             ],

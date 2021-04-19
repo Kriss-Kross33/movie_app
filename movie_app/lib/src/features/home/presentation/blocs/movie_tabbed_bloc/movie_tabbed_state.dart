@@ -21,8 +21,10 @@ class MovieTabChangedState extends MovieTabbedState {
   List<Object> get props => [currentTabIndex];
 }
 
-class MovieTabLoadFailure extends MovieTabbedState {
-  const MovieTabLoadFailure({int currentTabIndex})
+class MovieTabLoadFailureState extends MovieTabbedState {
+  final FailureType failureType;
+  const MovieTabLoadFailureState(
+      {int currentTabIndex, @required this.failureType})
       : super(currentTabIndex: currentTabIndex);
 
   @override

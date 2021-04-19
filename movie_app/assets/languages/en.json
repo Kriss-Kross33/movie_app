@@ -7,5 +7,10 @@
     "now": "NOW",
     "soon": "SOON",
     "okay": "Okay",
-    "aboutDescription": "This product uses the TMDb API but it is not the endorsed or certified by TMDb. This app is developed for educational purposes."
+    "aboutDescription": "This product uses the TMDb API but it is not the endorsed or certified by TMDb. This app is developed for educational purposes.",
+    "retry": "Retry",
+    "somethingWentWrong": "Something went wrong...",
+    "checkNetwork": "Please check your internet connection and tap the retry button",
+    "noMovies": "Sorry, no movies under this section"
+
 }
