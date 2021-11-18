@@ -15,15 +15,15 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  MovieCarouselBloc movieCarouselBloc;
-  MovieBackdropBloc movieBackdropBloc;
-  MovieTabbedBloc movieTabbedBloc;
+  late MovieCarouselBloc movieCarouselBloc;
+  late MovieBackdropBloc movieBackdropBloc;
+  late MovieTabbedBloc movieTabbedBloc;
 
   @override
   void dispose() {
-    movieCarouselBloc?.close();
-    movieBackdropBloc?.close();
-    movieTabbedBloc?.close();
+    movieCarouselBloc.close();
+    movieBackdropBloc.close();
+    movieTabbedBloc.close();
     super.dispose();
   }
 

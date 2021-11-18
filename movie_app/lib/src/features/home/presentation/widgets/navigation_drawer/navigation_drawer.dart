@@ -45,21 +45,25 @@ class NavigationDrawer extends StatelessWidget {
               ),
             ),
             NavigationDrawerListItem(
-              title: TranslationConstants.FAVOURITEMOVIES.translate(context),
+              title: TranslationConstants.FAVOURITEMOVIES.translate(context) ??
+                  TranslationConstants.FAVOURITEMOVIES,
               onPressed: () {},
             ),
             NavigationDrawerExpandedListTile(
-              title: TranslationConstants.LANGUAGES.translate(context),
+              title: TranslationConstants.LANGUAGES.translate(context) ??
+                  TranslationConstants.LANGUAGES,
               children: LanguageConstants.languages
                   .map(
                     (language) => NavigationDrawerSublistItem(
-                      title: language.value,
-                      onPressed: (int index) {
-                        BlocProvider.of<LanguageBloc>(context).add(
-                            ToogleLanguageEvent(
-                                language: LanguageConstants.languages[index]));
-                      },
-                    ),
+                        title: language.value,
+                        onPressed: () {
+                          (int index) {
+                            BlocProvider.of<LanguageBloc>(context).add(
+                                ToogleLanguageEvent(
+                                    language:
+                                        LanguageConstants.languages[index]));
+                          };
+                        }),
                   )
                   .toList(),
               onPressed: (int index) {
@@ -68,14 +72,16 @@ class NavigationDrawer extends StatelessWidget {
               },
             ),
             NavigationDrawerListItem(
-              title: TranslationConstants.FEEDBACK.translate(context),
+              title: TranslationConstants.FEEDBACK.translate(context) ??
+                  TranslationConstants.FEEDBACK,
               onPressed: () {
                 Navigator.of(context).pop();
-                Wiredash.of(context).show();
+                Wiredash.of(context)?.show();
               },
             ),
             NavigationDrawerListItem(
-              title: TranslationConstants.ABOUT.translate(context),
+              title: TranslationConstants.ABOUT.translate(context) ??
+                  TranslationConstants.ABOUT,
               onPressed: () {
                 Navigator.of(context).pop();
                 _showDialog(context);

@@ -10,7 +10,7 @@ abstract class LanguageState extends Equatable {
 class LanguageLoadedState extends LanguageState {
   final Locale locale;
 
-  LanguageLoadedState({this.locale});
+  LanguageLoadedState({required this.locale});
 
   @override
   List<Object> get props => [locale.languageCode];

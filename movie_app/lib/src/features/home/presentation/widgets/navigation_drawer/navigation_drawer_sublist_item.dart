@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:movie_app/src/core/constants/size_constants.dart';
+
 import '../../../../../core/extensions/size_extension.dart';
 
 class NavigationDrawerSublistItem extends StatelessWidget {
   final String title;
-  final Function onPressed;
+  final VoidCallback? onPressed;
 
   const NavigationDrawerSublistItem(
-      {Key key, @required this.title, @required this.onPressed})
+      {Key? key, required this.title, required this.onPressed})
       : super(key: key);
   @override
   Widget build(BuildContext context) {

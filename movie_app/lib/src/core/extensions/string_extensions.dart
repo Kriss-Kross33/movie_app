@@ -7,7 +7,7 @@ extension StringExtension on String {
   }
 
   /// Translate a text String.
-  String translate(BuildContext context) {
-    return AppLocalizations.of(context).translate(this);
+  String? translate(BuildContext context) {
+    return AppLocalizations.of(context)?.translate(this);
   }
 }

@@ -3,6 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:movie_app/src/core/constants/size_constants.dart';
 import 'package:movie_app/src/core/screenutil/screenutil.dart';
 import 'package:movie_app/src/features/home/presentation/widgets/logo_widget.dart';
+
 import '../../../../core/extensions/size_extension.dart';
 
 class MovieAppBar extends StatelessWidget {
@@ -10,7 +11,7 @@ class MovieAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(
-        top: ScreenUtil.statusBarHeight + Sizes.dimen_4.h,
+        top: ScreenUtil().statusBarHeight + Sizes.dimen_4.h,
         right: Sizes.dimen_16.w,
         left: Sizes.dimen_16.w,
       ),

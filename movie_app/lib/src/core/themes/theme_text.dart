@@ -8,27 +8,29 @@ class ThemeText {
   const ThemeText._();
 
   static TextTheme get _poppinsTextTheme => GoogleFonts.poppinsTextTheme();
-  static TextStyle get _whiteHeadline6 => _poppinsTextTheme.headline6.copyWith(
+  static TextStyle? get _whiteHeadline6 =>
+      _poppinsTextTheme.headline6?.copyWith(
         fontSize: Sizes.dimen_20.sp,
         color: Colors.white,
       );
 
-  static TextStyle get _whiteHeadline5 => _poppinsTextTheme.headline5.copyWith(
+  static TextStyle? get _whiteHeadline5 =>
+      _poppinsTextTheme.headline5?.copyWith(
         fontSize: Sizes.dimen_24.sp,
         color: Colors.white,
       );
 
-  static TextStyle get whiteSubtitle1 => _poppinsTextTheme.button.copyWith(
+  static TextStyle? get whiteSubtitle1 => _poppinsTextTheme.button?.copyWith(
         fontSize: Sizes.dimen_16.sp,
         color: Colors.white,
       );
 
-  static TextStyle get _whiteButton => _poppinsTextTheme.subtitle1.copyWith(
+  static TextStyle? get _whiteButton => _poppinsTextTheme.subtitle1?.copyWith(
         fontSize: Sizes.dimen_14.sp,
         color: Colors.white,
       );
 
-  static TextStyle get whiteBodyText2 => _poppinsTextTheme.bodyText2.copyWith(
+  static TextStyle? get whiteBodyText2 => _poppinsTextTheme.bodyText2?.copyWith(
         color: Colors.white,
         fontSize: Sizes.dimen_14.sp,
         wordSpacing: 0.25,

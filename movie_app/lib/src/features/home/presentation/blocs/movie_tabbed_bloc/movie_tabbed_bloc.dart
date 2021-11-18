@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
-import 'package:meta/meta.dart';
 import 'package:movie_app/src/core/errors/failures/failures.dart';
 import 'package:movie_app/src/features/home/domain/entities/movie_entity.dart';
 import 'package:movie_app/src/features/home/domain/usecases/get_coming_soon.dart';
@@ -18,9 +17,9 @@ class MovieTabbedBloc extends Bloc<MovieTabbedEvent, MovieTabbedState> {
   final GetPopular _getPopular;
   final GetComingSoon _getComingSoon;
   MovieTabbedBloc({
-    @required GetPlayingNow getPlayingNow,
-    @required GetComingSoon getComingSoon,
-    @required GetPopular getPopular,
+    required GetPlayingNow getPlayingNow,
+    required GetComingSoon getComingSoon,
+    required GetPopular getPopular,
   })  : _getComingSoon = getComingSoon,
         _getPlayingNow = getPlayingNow,
         _getPopular = getPopular,
@@ -31,7 +30,7 @@ class MovieTabbedBloc extends Bloc<MovieTabbedEvent, MovieTabbedState> {
     MovieTabbedEvent event,
   ) async* {
     if (event is MovieTabChangedEvent) {
-      Either<Failure, List<MovieEntity>> eitherFailureOrMovies;
+      late Either<Failure, List<MovieEntity>> eitherFailureOrMovies;
       switch (event.currentTabIndex) {
         case 0:
           eitherFailureOrMovies = await _getPopular();

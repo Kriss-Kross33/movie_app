@@ -7,12 +7,12 @@ import '../extensions/string_extensions.dart';
 
 class Button extends StatelessWidget {
   final String text;
-  final Function onPressed;
+  final VoidCallback? onPressed;
 
   const Button({
-    Key key,
-    @required this.text,
-    @required this.onPressed,
+    Key? key,
+    required this.text,
+    required this.onPressed,
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {
@@ -32,7 +32,7 @@ class Button extends StatelessWidget {
       child: FlatButton(
         onPressed: onPressed,
         child: Text(
-          text.translate(context),
+          text.translate(context) ?? text,
           style: Theme.of(context).textTheme.button,
         ),
       ),

@@ -12,7 +12,7 @@ class MovieCarouselInitialState extends MovieCarouselState {}
 class MovieCarouselErrorState extends MovieCarouselState {
   final FailureType failureType;
 
-  const MovieCarouselErrorState({@required this.failureType});
+  const MovieCarouselErrorState({required this.failureType});
 
   @override
   List<Object> get props => [failureType];
@@ -23,7 +23,7 @@ class MovieCarouselLoadedState extends MovieCarouselState {
   final int defaultIndex;
 
   MovieCarouselLoadedState({
-    this.movies,
+    required this.movies,
     this.defaultIndex = 0,
   }) : assert(
           defaultIndex >= 0,

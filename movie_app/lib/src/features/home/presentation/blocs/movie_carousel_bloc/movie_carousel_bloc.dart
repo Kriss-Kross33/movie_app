@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
-import 'package:meta/meta.dart';
 import 'package:movie_app/src/core/errors/failures/failures.dart';
 import 'package:movie_app/src/features/home/domain/entities/movie_entity.dart';
 import 'package:movie_app/src/features/home/domain/usecases/get_trending.dart';
@@ -16,8 +15,8 @@ class MovieCarouselBloc extends Bloc<MovieCarouselEvent, MovieCarouselState> {
   final GetTrending _getTrending;
   final MovieBackdropBloc movieBackdropBloc;
   MovieCarouselBloc({
-    @required GetTrending getTrending,
-    @required this.movieBackdropBloc,
+    required GetTrending getTrending,
+    required this.movieBackdropBloc,
   })  : _getTrending = getTrending,
         super(MovieCarouselInitialState());
 

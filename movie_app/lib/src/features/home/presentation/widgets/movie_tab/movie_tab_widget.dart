@@ -29,7 +29,7 @@ class _MovieTabWidgetState extends State<MovieTabWidget> {
   @override
   void dispose() {
     super.dispose();
-    movieTabBloc?.close();
+    movieTabBloc.close();
   }
 
   @override
@@ -54,11 +54,12 @@ class _MovieTabWidgetState extends State<MovieTabWidget> {
                 ],
               ),
               if (state is MovieTabChangedState)
-                state.movies?.isEmpty ?? true
+                state.movies.isEmpty
                     ? Expanded(
                         child: Center(
                           child: Text(
-                            TranslationConstants.NO_MOVIES.translate(context),
+                            TranslationConstants.NO_MOVIES.translate(context) ??
+                                TranslationConstants.NO_MOVIES,
                             style: Theme.of(context).textTheme.subtitle1,
                           ),
                         ),

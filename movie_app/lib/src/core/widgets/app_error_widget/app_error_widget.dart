@@ -10,12 +10,12 @@ import '../../../core/extensions/string_extensions.dart';
 
 class AppErrorWidget extends StatelessWidget {
   final FailureType failureType;
-  final Function onPressed;
+  final VoidCallback? onPressed;
 
   const AppErrorWidget({
-    Key key,
-    @required this.failureType,
-    @required this.onPressed,
+    Key? key,
+    required this.failureType,
+    required this.onPressed,
   }) : super(key: key);
 
   @override
@@ -29,8 +29,8 @@ class AppErrorWidget extends StatelessWidget {
         children: <Widget>[
           Text(
             failureType == FailureType.api
-                ? TranslationConstants.SOMETHING_WENT_WRONG.translate(context)
-                : TranslationConstants.CHECK_NETWORK.translate(context),
+                ? TranslationConstants.SOMETHING_WENT_WRONG.translate(context)!
+                : TranslationConstants.CHECK_NETWORK.translate(context)!,
             textAlign: TextAlign.center,
             style: Theme.of(context).textTheme.subtitle1,
           ),
@@ -41,7 +41,7 @@ class AppErrorWidget extends StatelessWidget {
                 text: TranslationConstants.RETRY,
               ),
               Button(
-                onPressed: () => Wiredash.of(context).show(),
+                onPressed: () => Wiredash.of(context)?.show(),
                 text: TranslationConstants.FEEDBACK,
               ),
             ],

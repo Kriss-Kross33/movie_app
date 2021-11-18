@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:movie_app/src/core/constants/api_constants.dart';
 import 'package:movie_app/src/core/constants/size_constants.dart';
+
 import '../../../../../core/extensions/size_extension.dart';
 
 class MovieCardWidget extends StatelessWidget {
@@ -9,9 +10,9 @@ class MovieCardWidget extends StatelessWidget {
   final String posterPath;
 
   const MovieCardWidget({
-    Key key,
-    this.movieId,
-    this.posterPath,
+    Key? key,
+    required this.movieId,
+    required this.posterPath,
   }) : super(key: key);
 
   @override

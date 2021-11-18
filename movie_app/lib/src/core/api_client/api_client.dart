@@ -16,8 +16,10 @@ class ApiClient {
 
   dynamic get(String path) async {
     final headers = getHeaders();
+    final uri = Uri.parse(
+        '${ApiConstants.BASE_URL}$path?api_key=${ApiConstants.API_KEY}');
     final response = await _client.get(
-      '${ApiConstants.BASE_URL}$path?api_key=${ApiConstants.API_KEY}',
+      uri,
       headers: headers,
     );
     if (response.statusCode == 200) {

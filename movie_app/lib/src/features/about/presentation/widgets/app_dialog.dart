@@ -9,13 +9,13 @@ import '../../../../core/extensions/string_extensions.dart';
 
 class AppDialog extends StatelessWidget {
   final String title, description, buttonText;
-  final Widget child;
+  final Widget? child;
 
   const AppDialog({
-    Key key,
-    @required this.title,
-    @required this.description,
-    @required this.buttonText,
+    Key? key,
+    required this.title,
+    required this.description,
+    required this.buttonText,
     this.child,
   }) : super(key: key);
   @override
@@ -47,13 +47,13 @@ class AppDialog extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
             Text(
-              title.translate(context),
+              title.translate(context) ?? title,
               style: Theme.of(context).textTheme.headline5,
             ),
             Padding(
               padding: EdgeInsets.symmetric(vertical: Sizes.dimen_10.h),
               child: Text(
-                description.translate(context),
+                description.translate(context) ?? description,
                 textAlign: TextAlign.center,
                 style: Theme.of(context).textTheme.bodyText2,
               ),

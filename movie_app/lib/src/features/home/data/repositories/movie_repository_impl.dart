@@ -1,7 +1,6 @@
 import 'dart:io';
 
 import 'package:dartz/dartz.dart';
-import 'package:meta/meta.dart';
 import 'package:movie_app/src/core/errors/failures/failures.dart';
 import 'package:movie_app/src/features/home/data/data_sources/movie_remote_data_source.dart';
 import 'package:movie_app/src/features/home/domain/entities/movie_entity.dart';
@@ -12,7 +11,7 @@ typedef Future<List<MovieEntity>> _MovieCategoryChooser();
 class MovieRepositoryImpl extends MovieRepository {
   final MovieRemoteDataSource remoteDataSource;
 
-  MovieRepositoryImpl({@required this.remoteDataSource});
+  MovieRepositoryImpl({required this.remoteDataSource});
 
   @override
   Future<Either<Failure, List<MovieEntity>>> getTrending() async {

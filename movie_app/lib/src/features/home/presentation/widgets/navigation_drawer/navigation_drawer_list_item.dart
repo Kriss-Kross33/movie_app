@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 
 class NavigationDrawerListItem extends StatelessWidget {
   final String title;
-  final Function onPressed;
+  final VoidCallback onPressed;
 
   const NavigationDrawerListItem(
-      {Key key, @required this.title, @required this.onPressed})
+      {Key? key, required this.title, required this.onPressed})
       : super(key: key);
   @override
   Widget build(BuildContext context) {

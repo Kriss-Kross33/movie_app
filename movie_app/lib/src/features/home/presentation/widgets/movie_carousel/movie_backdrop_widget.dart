@@ -7,6 +7,7 @@ import 'package:movie_app/src/core/constants/api_constants.dart';
 import 'package:movie_app/src/core/constants/size_constants.dart';
 import 'package:movie_app/src/core/screenutil/screenutil.dart';
 import 'package:movie_app/src/features/home/presentation/blocs/movie_backdrop_bloc/movie_backdrop_bloc.dart';
+
 import '../../../../../core/extensions/size_extension.dart';
 
 class MovieBackdropWidget extends StatelessWidget {
@@ -40,7 +41,7 @@ class MovieBackdropWidget extends StatelessWidget {
             BackdropFilter(
               filter: ImageFilter.blur(sigmaX: 5.0, sigmaY: 5.0),
               child: Container(
-                height: ScreenUtil.screenWidth,
+                height: ScreenUtil().screenWidth,
                 width: 1,
                 color: Colors.transparent,
               ),

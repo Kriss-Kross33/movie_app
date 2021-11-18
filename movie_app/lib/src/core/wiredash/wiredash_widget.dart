@@ -9,10 +9,10 @@ class WiredashWidget extends StatelessWidget {
   final String languageCode;
 
   const WiredashWidget({
-    Key key,
-    @required this.navigatorKey,
-    @required this.child,
-    @required this.languageCode,
+    Key? key,
+    required this.navigatorKey,
+    required this.child,
+    required this.languageCode,
   }) : super(key: key);
 
   @override

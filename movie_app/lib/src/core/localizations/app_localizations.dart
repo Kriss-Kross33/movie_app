@@ -13,9 +13,9 @@ class AppLocalizations {
   static const LocalizationsDelegate<AppLocalizations> delegate =
       _ApplocalizationDelegate();
 
-  Map<String, String> _localizedStrings;
+  late Map<String, String> _localizedStrings;
 
-  static AppLocalizations of(context) =>
+  static AppLocalizations? of(context) =>
       Localizations.of<AppLocalizations>(context, AppLocalizations);
 
   Future<bool> load() async {
@@ -29,7 +29,7 @@ class AppLocalizations {
   }
 
   String translate(String key) {
-    return _localizedStrings[key];
+    return _localizedStrings[key]!;
   }
 }
 

@@ -5,7 +5,7 @@ import 'package:movie_app/src/core/screenutil/screenutil.dart';
 import 'package:movie_app/src/features/home/domain/entities/movie_entity.dart';
 import 'package:movie_app/src/features/home/presentation/blocs/movie_backdrop_bloc/movie_backdrop_bloc.dart';
 import 'package:movie_app/src/features/home/presentation/widgets/movie_carousel/animated_movie_card_widget.dart';
-import 'package:movie_app/src/features/home/presentation/widgets/movie_carousel/movie_card_widget.dart';
+
 import '../../../../../core/extensions/size_extension.dart';
 
 class MoviePageViewer extends StatefulWidget {
@@ -13,9 +13,9 @@ class MoviePageViewer extends StatefulWidget {
   final int initialPage;
 
   const MoviePageViewer({
-    Key key,
-    this.movies,
-    this.initialPage,
+    Key? key,
+    required this.movies,
+    required this.initialPage,
   })  : assert(initialPage >= 0, 'initialPage cannot be less than 0'),
         super(key: key);
 
@@ -24,7 +24,7 @@ class MoviePageViewer extends StatefulWidget {
 }
 
 class _MoviePageViewerState extends State<MoviePageViewer> {
-  PageController _pageController;
+  late PageController _pageController;
 
   @override
   void initState() {
@@ -38,7 +38,7 @@ class _MoviePageViewerState extends State<MoviePageViewer> {
 
   @override
   void dispose() {
-    _pageController?.dispose();
+    _pageController.dispose();
     super.dispose();
   }
 
@@ -46,7 +46,7 @@ class _MoviePageViewerState extends State<MoviePageViewer> {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.symmetric(vertical: Sizes.dimen_10.h),
-      height: ScreenUtil.screenHeight * 0.35,
+      height: ScreenUtil().screenHeight * 0.35,
       child: PageView.builder(
         controller: _pageController,
         itemBuilder: (BuildContext context, int index) {
@@ -59,7 +59,7 @@ class _MoviePageViewerState extends State<MoviePageViewer> {
           );
         },
         pageSnapping: true,
-        itemCount: widget.movies?.length ?? 0,
+        itemCount: widget.movies.length,
         onPageChanged: (index) {
           MovieEntity movie = widget.movies[index];
           BlocProvider.of<MovieBackdropBloc>(context)

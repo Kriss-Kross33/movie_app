@@ -9,7 +9,7 @@ abstract class LanguageEvent extends Equatable {
 
 class ToogleLanguageEvent extends LanguageEvent {
   final LanguageEntity language;
-  ToogleLanguageEvent({@required this.language});
+  ToogleLanguageEvent({required this.language});
 
   @override
   List<Object> get props => [language.code];
