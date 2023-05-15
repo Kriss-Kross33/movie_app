@@ -1,4 +1,4 @@
-import 'package:movie_app/src/features/languages/domain/usecases/language_entity.dart';
+import 'package:movie_app/src/features/languages/domain/entities/language_entity.dart';
 
 class LanguageConstants {
   const LanguageConstants._();
