@@ -5,8 +5,7 @@ import '../models/models.dart';
 import 'datasources.dart';
 
 class MovieDetailRemoteDataSourceImpl extends MovieDetailRemoteDataSource {
-  MovieDetailRemoteDataSourceImpl({required ApiClient client})
-      : _client = client;
+  MovieDetailRemoteDataSourceImpl(ApiClient client) : _client = client;
 
   final ApiClient _client;
 
