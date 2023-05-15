@@ -29,11 +29,11 @@ class Button extends StatelessWidget {
         ),
         borderRadius: BorderRadius.circular(Sizes.dimen_20.w),
       ),
-      child: FlatButton(
+      child: TextButton(
         onPressed: onPressed,
         child: Text(
           text.translate(context) ?? text,
-          style: Theme.of(context).textTheme.button,
+          style: Theme.of(context).textTheme.labelLarge,
         ),
       ),
     );

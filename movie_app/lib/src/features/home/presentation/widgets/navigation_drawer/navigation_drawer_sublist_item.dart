@@ -25,7 +25,7 @@ class NavigationDrawerSublistItem extends StatelessWidget {
         ),
         child: ListTile(
           contentPadding: EdgeInsets.symmetric(horizontal: Sizes.dimen_32.w),
-          title: Text(title, style: Theme.of(context).textTheme.subtitle1),
+          title: Text(title, style: Theme.of(context).textTheme.titleMedium),
         ),
       ),
     );

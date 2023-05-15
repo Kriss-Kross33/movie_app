@@ -13,7 +13,7 @@ class MovieDataWidget extends StatelessWidget {
             textAlign: TextAlign.center,
             maxLines: 1,
             overflow: TextOverflow.fade,
-            style: Theme.of(context).textTheme.headline6,
+            style: Theme.of(context).textTheme.titleLarge,
           );
         }
         return const SizedBox.shrink();

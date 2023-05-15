@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -10,7 +9,7 @@ class AppLocalizations {
 
   AppLocalizations(this.locale);
 
-  static const LocalizationsDelegate<AppLocalizations> delegate =
+  static LocalizationsDelegate<AppLocalizations> delegate =
       _ApplocalizationDelegate();
 
   late Map<String, String> _localizedStrings;
@@ -36,6 +35,7 @@ class AppLocalizations {
 class _ApplocalizationDelegate extends LocalizationsDelegate<AppLocalizations> {
   const _ApplocalizationDelegate();
 
+  // include all supported languages
   @override
   bool isSupported(Locale locale) {
     return LanguageConstants.languages

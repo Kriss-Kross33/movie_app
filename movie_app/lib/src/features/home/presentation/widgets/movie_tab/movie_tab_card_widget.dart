@@ -37,7 +37,7 @@ class MovieTabCardWidget extends StatelessWidget {
             title.intelliTrim(),
             maxLines: 1,
             textAlign: TextAlign.center,
-            style: Theme.of(context).textTheme.bodyText2,
+            style: Theme.of(context).textTheme.bodyMedium,
           ),
         ),
       ],

@@ -60,7 +60,7 @@ class _MovieTabWidgetState extends State<MovieTabWidget> {
                           child: Text(
                             TranslationConstants.NO_MOVIES.translate(context) ??
                                 TranslationConstants.NO_MOVIES,
-                            style: Theme.of(context).textTheme.subtitle1,
+                            style: Theme.of(context).textTheme.titleMedium,
                           ),
                         ),
                       )

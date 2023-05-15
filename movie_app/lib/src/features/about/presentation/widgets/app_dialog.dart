@@ -48,14 +48,14 @@ class AppDialog extends StatelessWidget {
           children: <Widget>[
             Text(
               title.translate(context) ?? title,
-              style: Theme.of(context).textTheme.headline5,
+              style: Theme.of(context).textTheme.headlineSmall,
             ),
             Padding(
               padding: EdgeInsets.symmetric(vertical: Sizes.dimen_10.h),
               child: Text(
                 description.translate(context) ?? description,
                 textAlign: TextAlign.center,
-                style: Theme.of(context).textTheme.bodyText2,
+                style: Theme.of(context).textTheme.bodyMedium,
               ),
             ),
             if (child != null)

@@ -9,28 +9,28 @@ class ThemeText {
 
   static TextTheme get _poppinsTextTheme => GoogleFonts.poppinsTextTheme();
   static TextStyle? get _whiteHeadline6 =>
-      _poppinsTextTheme.headline6?.copyWith(
+      _poppinsTextTheme.titleLarge?.copyWith(
         fontSize: Sizes.dimen_20.sp,
         color: Colors.white,
       );
 
   static TextStyle? get _whiteHeadline5 =>
-      _poppinsTextTheme.headline5?.copyWith(
+      _poppinsTextTheme.headlineSmall?.copyWith(
         fontSize: Sizes.dimen_24.sp,
         color: Colors.white,
       );
 
-  static TextStyle? get whiteSubtitle1 => _poppinsTextTheme.button?.copyWith(
+  static TextStyle? get whiteSubtitle1 => _poppinsTextTheme.labelLarge?.copyWith(
         fontSize: Sizes.dimen_16.sp,
         color: Colors.white,
       );
 
-  static TextStyle? get _whiteButton => _poppinsTextTheme.subtitle1?.copyWith(
+  static TextStyle? get _whiteButton => _poppinsTextTheme.titleMedium?.copyWith(
         fontSize: Sizes.dimen_14.sp,
         color: Colors.white,
       );
 
-  static TextStyle? get whiteBodyText2 => _poppinsTextTheme.bodyText2?.copyWith(
+  static TextStyle? get whiteBodyText2 => _poppinsTextTheme.bodyMedium?.copyWith(
         color: Colors.white,
         fontSize: Sizes.dimen_14.sp,
         wordSpacing: 0.25,
@@ -39,10 +39,10 @@ class ThemeText {
       );
 
   static getTextTheme() => TextTheme(
-        headline5: _whiteHeadline5,
-        headline6: _whiteHeadline6,
-        subtitle1: whiteSubtitle1,
-        bodyText2: whiteBodyText2,
-        button: _whiteButton,
+        headlineSmall: _whiteHeadline5,
+        titleLarge: _whiteHeadline6,
+        titleMedium: whiteSubtitle1,
+        bodyMedium: whiteBodyText2,
+        labelLarge: _whiteButton,
       );
 }

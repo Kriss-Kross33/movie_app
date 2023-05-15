@@ -7,7 +7,6 @@ import 'package:movie_app/src/features/home/presentation/blocs/movie_carousel_bl
 import 'package:movie_app/src/features/home/presentation/blocs/movie_tabbed_bloc/movie_tabbed_bloc.dart';
 import 'package:movie_app/src/features/home/presentation/widgets/movie_carousel/movie_carousel_widget.dart';
 import 'package:movie_app/src/features/home/presentation/widgets/movie_tab/movie_tab_widget.dart';
-import 'package:movie_app/src/features/home/presentation/widgets/navigation_drawer/navigation_drawer.dart';
 
 class HomeScreen extends StatefulWidget {
   @override

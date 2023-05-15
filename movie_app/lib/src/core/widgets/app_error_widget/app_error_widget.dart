@@ -32,7 +32,7 @@ class AppErrorWidget extends StatelessWidget {
                 ? TranslationConstants.SOMETHING_WENT_WRONG.translate(context)!
                 : TranslationConstants.CHECK_NETWORK.translate(context)!,
             textAlign: TextAlign.center,
-            style: Theme.of(context).textTheme.subtitle1,
+            style: Theme.of(context).textTheme.titleMedium,
           ),
           ButtonBar(
             children: <Widget>[

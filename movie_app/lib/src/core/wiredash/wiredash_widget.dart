@@ -30,7 +30,8 @@ class WiredashWidget extends StatelessWidget {
         primaryColor: AppColor.royalBlue,
         secondaryColor: AppColor.violet,
         secondaryBackgroundColor: AppColor.vulcan,
-        dividerColor: AppColor.vulcan,
+
+        //dividerColor: AppColor.vulcan,
       ),
     );
   }
