@@ -4,18 +4,18 @@ import 'package:movie_app/src/core/constants/language_constants.dart';
 import 'package:movie_app/src/core/constants/size_constants.dart';
 import 'package:movie_app/src/core/constants/translation_constants.dart';
 import 'package:movie_app/src/features/about/presentation/widgets/app_dialog.dart';
+import 'package:movie_app/src/features/home/presentation/widgets/custom_navigation_drawer/custom_navigation_drawer_list_item.dart';
+import 'package:movie_app/src/features/home/presentation/widgets/custom_navigation_drawer/custom_navigation_drawer_sublist_item.dart';
+import 'package:movie_app/src/features/home/presentation/widgets/custom_navigation_drawer/custon_navigation_drawer_expanded_list_tile.dart';
 import 'package:movie_app/src/features/home/presentation/widgets/logo_widget.dart';
-import 'package:movie_app/src/features/home/presentation/widgets/navigation_drawer/navigation_drawer_expanded_list_tile.dart';
-import 'package:movie_app/src/features/home/presentation/widgets/navigation_drawer/navigation_drawer_list_item.dart';
-import 'package:movie_app/src/features/home/presentation/widgets/navigation_drawer/navigation_drawer_sublist_item.dart';
 import 'package:movie_app/src/features/languages/presentation/bloc/language_bloc/language_bloc.dart';
 import 'package:wiredash/wiredash.dart';
 
 import '../../../../../core/extensions/size_extension.dart';
 import '../../../../../core/extensions/string_extensions.dart';
 
-class NavigationDrawer extends StatelessWidget {
-  const NavigationDrawer();
+class CustomNavigationDrawer extends StatelessWidget {
+  const CustomNavigationDrawer();
 
   @override
   Widget build(BuildContext context) {
@@ -44,17 +44,17 @@ class NavigationDrawer extends StatelessWidget {
                 height: Sizes.dimen_20.h,
               ),
             ),
-            NavigationDrawerListItem(
+            CustomNavigationDrawerListItem(
               title: TranslationConstants.FAVOURITEMOVIES.translate(context) ??
                   TranslationConstants.FAVOURITEMOVIES,
               onPressed: () {},
             ),
-            NavigationDrawerExpandedListTile(
+            CustomNavigationDrawerExpandedListTile(
               title: TranslationConstants.LANGUAGES.translate(context) ??
                   TranslationConstants.LANGUAGES,
               children: LanguageConstants.languages
                   .map(
-                    (language) => NavigationDrawerSublistItem(
+                    (language) => CustomNavigationDrawerSublistItem(
                         title: language.value,
                         onPressed: () {
                           (int index) {
@@ -71,15 +71,15 @@ class NavigationDrawer extends StatelessWidget {
                     language: LanguageConstants.languages[index]));
               },
             ),
-            NavigationDrawerListItem(
+            CustomNavigationDrawerListItem(
               title: TranslationConstants.FEEDBACK.translate(context) ??
                   TranslationConstants.FEEDBACK,
               onPressed: () {
                 Navigator.of(context).pop();
-                Wiredash.of(context)?.show();
+                Wiredash.of(context).show();
               },
             ),
-            NavigationDrawerListItem(
+            CustomNavigationDrawerListItem(
               title: TranslationConstants.ABOUT.translate(context) ??
                   TranslationConstants.ABOUT,
               onPressed: () {

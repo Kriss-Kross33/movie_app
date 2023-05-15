@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:movie_app/src/features/home/presentation/widgets/navigation_drawer/navigation_drawer_sublist_item.dart';
+import 'package:movie_app/src/features/home/presentation/widgets/custom_navigation_drawer/custom_navigation_drawer_sublist_item.dart';
 
 class NavigationDrawerExpandedListTile extends StatelessWidget {
   final String title;
   final Function(int index) onPressed;
-  final List<NavigationDrawerSublistItem> children;
+  final List<CustomNavigationDrawerSublistItem> children;
 
   const NavigationDrawerExpandedListTile({
     Key? key,
@@ -31,7 +31,7 @@ class NavigationDrawerExpandedListTile extends StatelessWidget {
         ),
         children: [
           for (int i = 0; i < this.children.length; i++)
-            NavigationDrawerSublistItem(
+            CustomNavigationDrawerSublistItem(
                 title: children[i].title, onPressed: () => onPressed(i)),
         ],
       ),

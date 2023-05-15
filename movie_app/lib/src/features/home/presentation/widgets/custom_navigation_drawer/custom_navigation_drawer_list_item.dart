@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 
-class NavigationDrawerListItem extends StatelessWidget {
+class CustomNavigationDrawerListItem extends StatelessWidget {
   final String title;
   final VoidCallback onPressed;
 
-  const NavigationDrawerListItem(
-      {Key? key, required this.title, required this.onPressed})
-      : super(key: key);
+  const CustomNavigationDrawerListItem({
+    Key? key,
+    required this.title,
+    required this.onPressed,
+  }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(

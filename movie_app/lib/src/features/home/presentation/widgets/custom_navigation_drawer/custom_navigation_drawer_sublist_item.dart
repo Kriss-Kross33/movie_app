@@ -3,11 +3,11 @@ import 'package:movie_app/src/core/constants/size_constants.dart';
 
 import '../../../../../core/extensions/size_extension.dart';
 
-class NavigationDrawerSublistItem extends StatelessWidget {
+class CustomNavigationDrawerSublistItem extends StatelessWidget {
   final String title;
   final VoidCallback? onPressed;
 
-  const NavigationDrawerSublistItem(
+  const CustomNavigationDrawerSublistItem(
       {Key? key, required this.title, required this.onPressed})
       : super(key: key);
   @override

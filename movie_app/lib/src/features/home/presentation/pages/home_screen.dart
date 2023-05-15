@@ -5,6 +5,7 @@ import 'package:movie_app/src/core/widgets/app_error_widget/app_error_widget.dar
 import 'package:movie_app/src/features/home/presentation/blocs/movie_backdrop_bloc/movie_backdrop_bloc.dart';
 import 'package:movie_app/src/features/home/presentation/blocs/movie_carousel_bloc/movie_carousel_bloc.dart';
 import 'package:movie_app/src/features/home/presentation/blocs/movie_tabbed_bloc/movie_tabbed_bloc.dart';
+import 'package:movie_app/src/features/home/presentation/widgets/custom_navigation_drawer/custom_navigation_drawer.dart';
 import 'package:movie_app/src/features/home/presentation/widgets/movie_carousel/movie_carousel_widget.dart';
 import 'package:movie_app/src/features/home/presentation/widgets/movie_tab/movie_tab_widget.dart';
 
@@ -50,7 +51,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ],
       child: Scaffold(
-        drawer: const NavigationDrawer(),
+        drawer: const CustomNavigationDrawer(),
         body: BlocBuilder<MovieCarouselBloc, MovieCarouselState>(
           builder: (context, state) {
             if (state is MovieCarouselLoadedState) {
