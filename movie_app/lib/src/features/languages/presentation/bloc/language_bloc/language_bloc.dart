@@ -12,14 +12,16 @@ part 'language_state.dart';
 class LanguageBloc extends Bloc<LanguageEvent, LanguageState> {
   LanguageBloc()
       : super(LanguageLoadedState(
-            locale: Locale(LanguageConstants.languages[0].code)));
+            locale: Locale(LanguageConstants.languages[0].code))) {
+    on<ToogleLanguageEvent>(_onToogleLanguageEvent);
+  }
 
-  @override
-  Stream<LanguageState> mapEventToState(
-    LanguageEvent event,
-  ) async* {
-    if (event is ToogleLanguageEvent) {
-      yield LanguageLoadedState(locale: Locale(event.language.code));
-    }
+  Future<void> _onToogleLanguageEvent(
+      ToogleLanguageEvent event, Emitter<LanguageState> emit) async {
+    emit(
+      LanguageLoadedState(
+        locale: Locale(event.language.code),
+      ),
+    );
   }
 }

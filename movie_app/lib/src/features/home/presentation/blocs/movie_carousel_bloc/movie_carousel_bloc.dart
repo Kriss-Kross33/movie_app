@@ -18,26 +18,28 @@ class MovieCarouselBloc extends Bloc<MovieCarouselEvent, MovieCarouselState> {
     required GetTrending getTrending,
     required this.movieBackdropBloc,
   })  : _getTrending = getTrending,
-        super(MovieCarouselInitialState());
+        super(MovieCarouselInitialState()) {
+    on<CarouselLoadEvent>(_onCarouselLoadEvent);
+  }
 
-  @override
-  Stream<MovieCarouselState> mapEventToState(
-    MovieCarouselEvent event,
-  ) async* {
-    if (event is CarouselLoadEvent) {
-      Either<Failure, List<MovieEntity>> eitherFailureOrMovies =
-          await _getTrending();
-      yield eitherFailureOrMovies.fold(
-          (failure) => MovieCarouselErrorState(
+  Future<void> _onCarouselLoadEvent(
+      CarouselLoadEvent event, Emitter<MovieCarouselState> emit) async {
+    Either<Failure, List<MovieEntity>> eitherFailureOrMovies =
+        await _getTrending();
+    eitherFailureOrMovies.fold(
+        (failure) => emit(
+              MovieCarouselErrorState(
                 failureType: failure.failureType,
-              ), (movies) {
-        movieBackdropBloc
-            .add(MovieBackdropChangedEvent(movies[event.defaultIndex]));
-        return MovieCarouselLoadedState(
+              ),
+            ), (movies) {
+      movieBackdropBloc
+          .add(MovieBackdropChangedEvent(movies[event.defaultIndex]));
+      emit(
+        MovieCarouselLoadedState(
           movies: movies,
           defaultIndex: event.defaultIndex,
-        );
-      });
-    }
+        ),
+      );
+    });
   }
 }

@@ -23,36 +23,38 @@ class MovieTabbedBloc extends Bloc<MovieTabbedEvent, MovieTabbedState> {
   })  : _getComingSoon = getComingSoon,
         _getPlayingNow = getPlayingNow,
         _getPopular = getPopular,
-        super(MovieTabbedInitialState());
+        super(MovieTabbedInitialState()) {
+    on<MovieTabChangedEvent>(_onMovieTabChangedEvent);
+  }
 
-  @override
-  Stream<MovieTabbedState> mapEventToState(
-    MovieTabbedEvent event,
-  ) async* {
-    if (event is MovieTabChangedEvent) {
-      late Either<Failure, List<MovieEntity>> eitherFailureOrMovies;
-      switch (event.currentTabIndex) {
-        case 0:
-          eitherFailureOrMovies = await _getPopular();
-          break;
-        case 1:
-          eitherFailureOrMovies = await _getPlayingNow();
-          break;
-        case 2:
-          eitherFailureOrMovies = await _getComingSoon();
-          break;
-      }
-      yield eitherFailureOrMovies.fold(
-          (failure) => MovieTabLoadFailureState(
+  Future<void> _onMovieTabChangedEvent(
+      MovieTabChangedEvent event, Emitter<MovieTabbedState> emit) async {
+    late Either<Failure, List<MovieEntity>> eitherFailureOrMovies;
+    switch (event.currentTabIndex) {
+      case 0:
+        eitherFailureOrMovies = await _getPopular();
+        break;
+      case 1:
+        eitherFailureOrMovies = await _getPlayingNow();
+        break;
+      case 2:
+        eitherFailureOrMovies = await _getComingSoon();
+        break;
+    }
+    eitherFailureOrMovies.fold(
+        (failure) => emit(
+              MovieTabLoadFailureState(
                 currentTabIndex: event.currentTabIndex,
                 failureType: failure.failureType,
-              ), (movies) {
-        print('Index: ${event.currentTabIndex}, Movies: $movies');
-        return MovieTabChangedState(
+              ),
+            ), (movies) {
+      print('Index: ${event.currentTabIndex}, Movies: $movies');
+      emit(
+        MovieTabChangedState(
           currentTabIndex: event.currentTabIndex,
           movies: movies,
-        );
-      });
-    }
+        ),
+      );
+    });
   }
 }
