@@ -2,7 +2,6 @@ import 'package:get_it/get_it.dart';
 import 'package:http/http.dart';
 import 'package:movie_app/src/core/api_client/api_client.dart';
 import 'package:movie_app/src/features/features.dart';
-import 'package:movie_app/src/features/languages/presentation/bloc/language_bloc/language_bloc.dart';
 
 final locator = GetIt.I;
 
