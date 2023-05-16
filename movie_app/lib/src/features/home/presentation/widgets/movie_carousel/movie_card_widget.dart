@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:movie_app/src/core/constants/api_constants.dart';
 import 'package:movie_app/src/core/constants/size_constants.dart';
+import 'package:movie_app/src/features/features.dart';
 
 import '../../../../../core/extensions/size_extension.dart';
 
@@ -21,7 +22,20 @@ class MovieCardWidget extends StatelessWidget {
       elevation: 32,
       borderRadius: BorderRadius.circular(Sizes.dimen_16.w),
       child: GestureDetector(
-        onTap: () {},
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) {
+                return MovieDetailScreen(
+                  movieDetailArguments: MovieDetailArguments(
+                    movieId: movieId,
+                  ),
+                );
+              },
+            ),
+          );
+        },
         child: ClipRRect(
           borderRadius: BorderRadius.circular(Sizes.dimen_16.w),
           child: CachedNetworkImage(
