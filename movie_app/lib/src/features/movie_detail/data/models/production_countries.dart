@@ -2,6 +2,7 @@ part of 'movie_detail_model.dart';
 
 @JsonSerializable()
 class ProductionCountries {
+  @JsonKey(name: 'iso_3166_1')
   final String? iso31661;
   final String? name;
 
