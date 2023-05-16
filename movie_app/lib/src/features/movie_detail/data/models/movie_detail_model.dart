@@ -11,6 +11,7 @@ part 'spoken_languages.dart';
 @JsonSerializable()
 class MovieDetailModel extends MovieDetailEntity {
   final bool? adult;
+  @JsonKey(name: 'backdrop_path')
   final String backdropPath;
   // final Null belongsToCollection;
   final int? budget;
@@ -18,22 +19,31 @@ class MovieDetailModel extends MovieDetailEntity {
   final String? homepage;
   final int id;
   final String? imdbId;
+  @JsonKey(name: 'original_language')
   final String? originalLanguage;
+  @JsonKey(name: 'original_title')
   final String? originalTitle;
   final String overview;
   final double? popularity;
+  @JsonKey(name: 'poster_path')
   final String posterPath;
+  @JsonKey(name: 'production_companies')
   final List<ProductionCompanies>? productionCompanies;
+  @JsonKey(name: 'production_countries')
   final List<ProductionCountries>? productionCountries;
+  @JsonKey(name: 'release_date')
   final String releaseDate;
   final int? revenue;
   final int? runtime;
+  @JsonKey(name: 'spoken_languages')
   final List<SpokenLanguages>? spokenLanguages;
   final String? status;
   final String? tagline;
   final String title;
   final bool? video;
+  @JsonKey(name: 'vote_average')
   final double voteAverage;
+  @JsonKey(name: 'vote_count')
   final int? voteCount;
 
   MovieDetailModel({
