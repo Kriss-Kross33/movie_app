@@ -20,7 +20,7 @@ class MovieAppBar extends StatelessWidget {
           IconButton(
             icon: SvgPicture.asset(
               'assets/images/svgs/menu.svg',
-              height: Sizes.dimen_12.h,
+              height: Sizes.dimen_20.h,
             ),
             onPressed: () {
               Scaffold.of(context).openDrawer();
@@ -28,14 +28,14 @@ class MovieAppBar extends StatelessWidget {
           ),
           Expanded(
             child: const LogoWidget(
-              height: Sizes.dimen_14,
+              height: Sizes.dimen_22,
             ),
           ),
           IconButton(
             icon: Icon(
               Icons.search,
               color: Colors.white,
-              size: Sizes.dimen_12.h,
+              size: Sizes.dimen_20.h,
             ),
             onPressed: () {},
           ),

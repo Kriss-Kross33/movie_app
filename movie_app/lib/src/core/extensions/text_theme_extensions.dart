@@ -6,4 +6,12 @@ extension ThemeTextExtension on TextTheme {
         color: AppColor.royalBlue,
         fontWeight: FontWeight.w600,
       );
+
+  TextStyle? get greyDisplayLarge => titleSmall?.copyWith(
+        color: Colors.grey,
+      );
+
+  TextStyle? get violetLabelLarge => titleMedium?.copyWith(
+        color: AppColor.royalBlue,
+      );
 }
