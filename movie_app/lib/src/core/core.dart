@@ -5,6 +5,7 @@ export 'di/di.dart';
 export 'errors/errors.dart';
 export 'extensions/extensions.dart';
 export 'localizations/localizations.dart';
+export 'observers/observers.dart';
 export 'screenutil/screenutil.dart';
 export 'themes/theme_text.dart';
 export 'usecases/usecase.dart';
