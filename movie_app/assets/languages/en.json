@@ -11,6 +11,6 @@
     "retry": "Retry",
     "somethingWentWrong": "Something went wrong...",
     "checkNetwork": "Please check your internet connection and tap the retry button",
-    "noMovies": "Sorry, no movies under this section"
-
+    "noMovies": "Sorry, no movies under this section",
+    "cast": "Cast"
 }

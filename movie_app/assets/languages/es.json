@@ -11,5 +11,6 @@
     "retry": "Rever",
     "somethingWentWrong": "Algo salió mal...",
     "checkNetwork": "Verifique su conexión a Internet y toque el botón de reintentar",
-    "noMovies": "Lo siento, no hay películas en esta sección."
+    "noMovies": "Lo siento, no hay películas en esta sección.",
+    "cast": "Emitir"
 }
