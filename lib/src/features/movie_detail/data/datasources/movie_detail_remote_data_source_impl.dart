@@ -11,23 +11,20 @@ class MovieDetailRemoteDataSourceImpl extends MovieDetailRemoteDataSource {
 
   @override
   Future<MovieDetailModel> getMovieDetail(int id) async {
-    try {
-      Map<String, dynamic> response = await _client.get('movie/$id');
-      return MovieDetailModel.fromJson(response);
-    } on SocketException {
-      rethrow;
-    } on ServerException {
-      rethrow;
-    } catch (e) {
-      throw ServerException(errorMessage: e.toString());
-    }
+    final jsonMap = await _getMovieInfo('movie/$id');
+    return MovieDetailModel.fromJson(jsonMap);
   }
 
   @override
   Future<List<MovieCastModel>> getMovieCast(int id) async {
+    final jsonMap = await _getMovieInfo('movie/$id/credits');
+    return MovieCreditModel.fromJson(jsonMap).cast;
+  }
+
+  Future<Map<String, dynamic>> _getMovieInfo<T>(String endpoint) async {
     try {
-      Map<String, dynamic> response = await _client.get('movie/$id/credits');
-      return MovieCreditModel.fromJson(response).cast;
+      Map<String, dynamic> response = await _client.get(endpoint);
+      return response;
     } on SocketException {
       rethrow;
     } on ServerException {
