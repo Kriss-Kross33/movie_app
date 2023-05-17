@@ -20,6 +20,13 @@ Future setUpLocator() async {
   locator.registerFactory<MovieDetailBloc>(
     () => MovieDetailBloc(
       getMovieDetail: locator(),
+      movieCastBloc: locator(),
+    ),
+  );
+
+  locator.registerFactory<MovieCastBloc>(
+    () => MovieCastBloc(
+      getMovieCast: locator(),
     ),
   );
   locator.registerSingleton<LanguageBloc>(LanguageBloc());
@@ -30,6 +37,8 @@ Future setUpLocator() async {
   locator.registerLazySingleton<GetPlayingNow>(() => GetPlayingNow(locator()));
   locator
       .registerLazySingleton<GetMovieDetail>(() => GetMovieDetail(locator()));
+
+  locator.registerLazySingleton<GetMovieCast>(() => GetMovieCast(locator()));
   //! Repositories
   locator.registerLazySingleton<MovieRepository>(
       () => MovieRepositoryImpl(remoteDataSource: locator()));

@@ -21,4 +21,16 @@ class MovieDetailRepositoryImpl extends MovieDetailRepository {
       return left(Failure(failureType: FailureType.api));
     }
   }
+
+  @override
+  Future<Either<Failure, List<MovieCastEntity>>> getMovieCast(int id) async {
+    try {
+      final remoteData = await remoteDataSource.getMovieCast(id);
+      return right(remoteData);
+    } on SocketException {
+      return left(Failure(failureType: FailureType.network));
+    } catch (e) {
+      return left(Failure(failureType: FailureType.api));
+    }
+  }
 }
