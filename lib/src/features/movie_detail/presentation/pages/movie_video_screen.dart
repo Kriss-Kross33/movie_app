@@ -47,14 +47,7 @@ class _MovieVideoScreenState extends State<MovieVideoScreen> {
         mainAxisSize: MainAxisSize.min,
         children: [
           MovieAppBar(
-            leading: GestureDetector(
-              onTap: () => Navigator.pop(context),
-              child: Icon(
-                Icons.arrow_back_ios,
-                color: Colors.white,
-                size: Sizes.dimen_20.h,
-              ),
-            ),
+            leading: BackArrow(),
             title: Text(
               TranslationConstants.WATCH_TRAILERS.translate(context)!,
             ),
