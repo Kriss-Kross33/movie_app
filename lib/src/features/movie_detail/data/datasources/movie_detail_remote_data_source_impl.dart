@@ -23,7 +23,7 @@ class MovieDetailRemoteDataSourceImpl extends MovieDetailRemoteDataSource {
 
   @override
   Future<List<MovieVideoModel>?> getMovieVideos(int id) async {
-    final jsonMap = await _getMovieInfo('movie/$id/credits');
+    final jsonMap = await _getMovieInfo('movie/$id/videos');
     return MovieVideoResultsModel.fromJson(jsonMap).videos;
   }
 

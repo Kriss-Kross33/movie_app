@@ -1,6 +1,4 @@
-import 'package:json_annotation/json_annotation.dart';
-
-part 'movie_crew_model.g.dart';
+part of 'movie_credit_model.dart';
 
 @JsonSerializable()
 class MovieCrewModel {

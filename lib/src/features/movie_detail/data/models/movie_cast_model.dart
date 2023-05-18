@@ -1,8 +1,4 @@
-import 'package:json_annotation/json_annotation.dart';
-
-import '../../domain/domain.dart';
-
-part 'movie_cast_model.g.dart';
+part of 'movie_credit_model.dart';
 
 @JsonSerializable()
 class MovieCastModel extends MovieCastEntity {
