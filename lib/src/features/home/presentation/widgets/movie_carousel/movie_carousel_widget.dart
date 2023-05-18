@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:movie_app/src/common/widgets/movie_app_bar.dart';
 import 'package:movie_app/src/features/home/domain/entities/movie_entity.dart';
-import 'package:movie_app/src/features/home/presentation/widgets/movie_app_bar.dart';
+import 'package:movie_app/src/features/home/presentation/widgets/logo_widget.dart';
 import 'package:movie_app/src/features/home/presentation/widgets/movie_carousel/movie_backdrop_widget.dart';
 import 'package:movie_app/src/features/home/presentation/widgets/movie_carousel/movie_data_widget.dart';
 import 'package:movie_app/src/features/home/presentation/widgets/movie_carousel/movie_page_viewer.dart';
 import 'package:movie_app/src/features/home/presentation/widgets/separator.dart';
+
+import '../../../../../core/core.dart';
 
 class MovieCarouselWidget extends StatelessWidget {
   final List<MovieEntity> movies;
@@ -23,7 +27,30 @@ class MovieCarouselWidget extends StatelessWidget {
         MovieBackdropWidget(),
         Column(
           children: <Widget>[
-            MovieAppBar(),
+            MovieAppBar(
+              leading: IconButton(
+                icon: SvgPicture.asset(
+                  'assets/images/svgs/menu.svg',
+                  height: Sizes.dimen_20.h,
+                ),
+                onPressed: () {
+                  Scaffold.of(context).openDrawer();
+                },
+              ),
+              title: Expanded(
+                child: const LogoWidget(
+                  height: Sizes.dimen_22,
+                ),
+              ),
+              trailing: IconButton(
+                icon: Icon(
+                  Icons.search,
+                  color: Colors.white,
+                  size: Sizes.dimen_20.h,
+                ),
+                onPressed: () {},
+              ),
+            ),
             MoviePageViewer(movies: movies, initialPage: index),
             MovieDataWidget(),
             Separator(),
