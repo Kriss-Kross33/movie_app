@@ -20,6 +20,7 @@ class MovieCastBloc extends Bloc<MovieCastEvent, MovieCastState> {
 
   Future<void> _onMovieCastFetchEvent(
       MovieCastFetchEvent event, Emitter<MovieCastState> emit) async {
+    emit(MovieCastLoadingState());
     final _eitherFailureOrMovieDetail =
         await _getMovieCast(MovieParams(event.id));
     _eitherFailureOrMovieDetail.fold(
