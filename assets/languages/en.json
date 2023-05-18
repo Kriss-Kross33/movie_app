@@ -12,5 +12,6 @@
     "somethingWentWrong": "Something went wrong...",
     "checkNetwork": "Please check your internet connection and tap the retry button",
     "noMovies": "Sorry, no movies under this section",
-    "cast": "Cast"
+    "cast": "Cast",
+    "watchTrailers": "Watch Trailers"
 }
