@@ -15,6 +15,7 @@ class MovieDetailBloc extends Bloc<MovieDetailEvent, MovieDetailState> {
   MovieDetailBloc({
     required GetMovieDetail getMovieDetail,
     required this.movieCastBloc,
+    required this.movieVideoBloc,
   })  : _getMovieDetail = getMovieDetail,
         super(MovieDetailInitialState()) {
     on<MovieDetailFetchEvent>(_onMovieDetailFetchEvent);
@@ -22,6 +23,7 @@ class MovieDetailBloc extends Bloc<MovieDetailEvent, MovieDetailState> {
 
   final GetMovieDetail _getMovieDetail;
   final MovieCastBloc movieCastBloc;
+  final MovieVideoBloc movieVideoBloc;
 
   Future<void> _onMovieDetailFetchEvent(
       MovieDetailFetchEvent event, Emitter<MovieDetailState> emit) async {
@@ -32,5 +34,6 @@ class MovieDetailBloc extends Bloc<MovieDetailEvent, MovieDetailState> {
             emit(MovieDetailErrorState(failureType: failure.failureType)),
         (movie) => emit(MovieDetailLoadedState(movie: movie)));
     movieCastBloc.add(MovieCastFetchEvent(event.id));
+    movieVideoBloc.add(MovieVideoFetchEvent(event.id));
   }
 }

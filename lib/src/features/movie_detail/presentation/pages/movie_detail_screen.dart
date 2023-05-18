@@ -20,12 +20,14 @@ class MovieDetailScreen extends StatefulWidget {
 class _MovieDetailScreenState extends State<MovieDetailScreen> {
   late MovieDetailBloc _movieDetailBloc;
   late MovieCastBloc _movieCastBloc;
+  late MovieVideoBloc _movieVideoBloc;
 
   @override
   void initState() {
     super.initState();
     _movieDetailBloc = locator<MovieDetailBloc>();
     _movieCastBloc = _movieDetailBloc.movieCastBloc;
+    _movieVideoBloc = _movieDetailBloc.movieVideoBloc;
     _movieDetailBloc.add(
       MovieDetailFetchEvent(widget.movieDetailArguments.movieId),
     );
@@ -35,6 +37,7 @@ class _MovieDetailScreenState extends State<MovieDetailScreen> {
   void dispose() {
     _movieDetailBloc.close();
     _movieCastBloc.close();
+    _movieVideoBloc.close();
     super.dispose();
   }
 
@@ -48,6 +51,9 @@ class _MovieDetailScreenState extends State<MovieDetailScreen> {
           ),
           BlocProvider<MovieCastBloc>.value(
             value: _movieCastBloc,
+          ),
+          BlocProvider<MovieVideoBloc>.value(
+            value: _movieVideoBloc,
           ),
         ],
         child: BlocBuilder<MovieDetailBloc, MovieDetailState>(

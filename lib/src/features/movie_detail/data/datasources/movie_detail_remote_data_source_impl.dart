@@ -21,6 +21,12 @@ class MovieDetailRemoteDataSourceImpl extends MovieDetailRemoteDataSource {
     return MovieCreditModel.fromJson(jsonMap).cast;
   }
 
+  @override
+  Future<List<MovieVideoModel>?> getMovieVideos(int id) async {
+    final jsonMap = await _getMovieInfo('movie/$id/credits');
+    return MovieVideoResultsModel.fromJson(jsonMap).videos;
+  }
+
   Future<Map<String, dynamic>> _getMovieInfo<T>(String endpoint) async {
     try {
       Map<String, dynamic> response = await _client.get(endpoint);
