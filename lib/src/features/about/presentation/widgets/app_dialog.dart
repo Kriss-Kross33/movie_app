@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:movie_app/src/core/app_color/app_color.dart';
 import 'package:movie_app/src/core/constants/size_constants.dart';
 import 'package:movie_app/src/core/constants/translation_constants.dart';
-import 'package:movie_app/src/core/widgets/button.dart';
 
+import '../../../../common/common.dart';
 import '../../../../core/extensions/size_extension.dart';
 import '../../../../core/extensions/string_extensions.dart';
 

@@ -4,9 +4,9 @@ import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
 import 'package:movie_app/src/core/errors/failures/failures.dart';
-import 'package:movie_app/src/features/home/domain/entities/movie_entity.dart';
-import 'package:movie_app/src/features/home/domain/usecases/get_trending.dart';
 import 'package:movie_app/src/features/home/presentation/blocs/movie_backdrop_bloc/movie_backdrop_bloc.dart';
+
+import '../../../../../common/movie/domain/domain.dart';
 
 part 'movie_carousel_event.dart';
 part 'movie_carousel_state.dart';

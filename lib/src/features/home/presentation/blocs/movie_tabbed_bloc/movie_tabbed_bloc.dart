@@ -4,10 +4,8 @@ import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
 import 'package:movie_app/src/core/errors/failures/failures.dart';
-import 'package:movie_app/src/features/home/domain/entities/movie_entity.dart';
-import 'package:movie_app/src/features/home/domain/usecases/get_coming_soon.dart';
-import 'package:movie_app/src/features/home/domain/usecases/get_now_playing.dart';
-import 'package:movie_app/src/features/home/domain/usecases/get_popular.dart';
+
+import '../../../../../common/movie/domain/domain.dart';
 
 part 'movie_tabbed_event.dart';
 part 'movie_tabbed_state.dart';

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movie_app/src/common/movie/domain/entities/movie_entity.dart';
 import 'package:movie_app/src/core/constants/size_constants.dart';
 import 'package:movie_app/src/core/screenutil/screenutil.dart';
-import 'package:movie_app/src/features/home/domain/entities/movie_entity.dart';
 import 'package:movie_app/src/features/home/presentation/blocs/movie_backdrop_bloc/movie_backdrop_bloc.dart';
 import 'package:movie_app/src/features/home/presentation/widgets/movie_carousel/animated_movie_card_widget.dart';
 

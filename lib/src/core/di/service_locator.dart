@@ -1,7 +1,9 @@
 import 'package:get_it/get_it.dart';
 import 'package:http/http.dart';
-import 'package:movie_app/src/core/api_client/api_client.dart';
+import 'package:movie_app/src/core/core.dart';
 import 'package:movie_app/src/features/features.dart';
+
+import '../../common/common.dart';
 
 final locator = GetIt.I;
 
@@ -31,6 +33,12 @@ Future setUpLocator() async {
     ),
   );
 
+  locator.registerFactory<SearchMovieBloc>(
+    () => SearchMovieBloc(
+      searchMovie: locator(),
+    ),
+  );
+
   locator.registerFactory<MovieVideoBloc>(
     () => MovieVideoBloc(
       getMovieVideos: locator(),
@@ -49,6 +57,8 @@ Future setUpLocator() async {
 
   locator
       .registerLazySingleton<GetMovieVideos>(() => GetMovieVideos(locator()));
+
+  locator.registerLazySingleton<SearchMovie>(() => SearchMovie(locator()));
   //! Repositories
   locator.registerLazySingleton<MovieRepository>(
       () => MovieRepositoryImpl(remoteDataSource: locator()));
@@ -56,12 +66,18 @@ Future setUpLocator() async {
   locator.registerLazySingleton<MovieDetailRepository>(
       () => MovieDetailRepositoryImpl(remoteDataSource: locator()));
 
+  locator.registerLazySingleton<SearchMovieRepository>(
+      () => SearchMovieRepositoryImpl(remoteDataSource: locator()));
+
   //! Remote Data Sources
   locator.registerLazySingleton<MovieRemoteDataSource>(
       () => MovieRemoteDataSourceImpl(locator()));
 
   locator.registerLazySingleton<MovieDetailRemoteDataSource>(
       () => MovieDetailRemoteDataSourceImpl(locator()));
+
+  locator.registerLazySingleton<SearchMovieRemoteDataSource>(
+      () => SearchMovieRemoteDataSourceImpl(locator()));
   //! Core
   locator.registerLazySingleton<ApiClient>(() => ApiClient(locator()));
   //! External Packages

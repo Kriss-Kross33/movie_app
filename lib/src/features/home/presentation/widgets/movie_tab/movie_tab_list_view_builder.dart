@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:movie_app/src/common/movie/domain/entities/movie_entity.dart';
 import 'package:movie_app/src/core/constants/size_constants.dart';
-import 'package:movie_app/src/features/home/domain/entities/movie_entity.dart';
 import 'package:movie_app/src/features/home/presentation/widgets/movie_tab/movie_tab_card_widget.dart';
 
 import '../../../../../core/extensions/size_extension.dart';

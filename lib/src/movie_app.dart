@@ -6,10 +6,10 @@ import 'package:movie_app/src/core/constants/language_constants.dart';
 import 'package:movie_app/src/core/di/service_locator.dart';
 import 'package:movie_app/src/core/localizations/app_localizations.dart';
 import 'package:movie_app/src/core/themes/theme_text.dart';
-import 'package:movie_app/src/core/wiredash/wiredash_widget.dart';
 import 'package:movie_app/src/features/home/presentation/pages/home_screen.dart';
 import 'package:movie_app/src/features/languages/presentation/bloc/language_bloc/language_bloc.dart';
 
+import 'common/common.dart';
 import 'core/screenutil/screen_util_widget.dart';
 import 'core/screenutil/screenutil.dart';
 
@@ -56,7 +56,9 @@ class _MovieAppState extends State<MovieApp> {
                     scaffoldBackgroundColor: AppColor.vulcan,
                     visualDensity: VisualDensity.adaptivePlatformDensity,
                     textTheme: ThemeText.getTextTheme(),
-                    appBarTheme: const AppBarTheme(elevation: 0), colorScheme: ColorScheme.fromSwatch().copyWith(secondary: AppColor.royalBlue),
+                    appBarTheme: const AppBarTheme(elevation: 0),
+                    colorScheme: ColorScheme.fromSwatch()
+                        .copyWith(secondary: AppColor.royalBlue),
                   ),
                   supportedLocales: LanguageConstants.languages
                       .map((language) => Locale(language.code))
