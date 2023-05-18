@@ -18,6 +18,8 @@ dependencies:
   dartz: ^0.10.1
   equatable: ^2.0.5
   flutter_bloc: ^8.1.2
+  flutter_localizations:
+    sdk:  flutter
   get_it: ^7.6.0
   google_fonts: ^4.0.4
   http: ^0.13.6
@@ -26,8 +28,7 @@ dependencies:
   websafe_svg: ^3.0.0+5
   cached_network_image: ^3.2.3
   wiredash: ^1.7.0
-  flutter_localizations:
-    sdk:  flutter
+  youtube_player_flutter: ^8.1.2
 
 dev_dependencies:
   flutter_test:
