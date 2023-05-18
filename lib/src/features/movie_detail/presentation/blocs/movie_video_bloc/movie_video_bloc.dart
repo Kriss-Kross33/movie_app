@@ -20,6 +20,7 @@ class MovieVideoBloc extends Bloc<MovieVideoEvent, MovieVideoState> {
 
   Future<void> _onMovieVideoFetchEvent(
       MovieVideoFetchEvent event, Emitter<MovieVideoState> emit) async {
+    emit(MovieVideoLoadingState());
     final _eitherFailureOrMovieDetail =
         await _getMovieVideos(MovieParams(event.id));
     _eitherFailureOrMovieDetail.fold(
