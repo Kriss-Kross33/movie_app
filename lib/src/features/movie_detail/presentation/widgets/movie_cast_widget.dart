@@ -34,77 +34,73 @@ class _MovieCastWidgetState extends State<MovieCastWidget> {
     return BlocBuilder<MovieCastBloc, MovieCastState>(
       builder: (context, state) {
         if (state is MovieCastLoadedState) {
-          return Padding(
-            padding: EdgeInsets.only(bottom: 60),
-            child: Container(
-              height: Sizes.dimen_200.h,
-              child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                itemCount: state.movieCasts.length,
-                itemBuilder: (context, index) {
-                  final movieCast = state.movieCasts[index];
-                  return SizedBox(
-                    height: Sizes.dimen_150.h,
-                    width: Sizes.dimen_160.w,
-                    child: Card(
-                      elevation: 1,
-                      margin: EdgeInsets.symmetric(
-                        horizontal: Sizes.dimen_8.w,
-                        vertical: Sizes.dimen_4.h,
-                      ),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(Sizes.dimen_8.w),
-                      ),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Expanded(
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.vertical(
-                                  top: Radius.circular(8)),
-                              child: movieCast.profilePath == null
-                                  ? Container(
-                                      height: Sizes.dimen_150.h,
-                                      width: Sizes.dimen_150.w,
-                                      decoration: BoxDecoration(
-                                        image: DecorationImage(
-                                          image: AssetImage(
-                                              AssetConstants.noImage),
-                                        ),
-                                      ),
-                                    )
-                                  : CachedNetworkImage(
-                                      height: Sizes.dimen_150.h,
-                                      width: Sizes.dimen_160.w,
-                                      imageUrl:
-                                          '${ApiConstants.BASE_IMAGE_URL}${movieCast.profilePath}',
-                                      fit: BoxFit.cover,
-                                    ),
-                            ),
-                          ),
-                          Center(
-                            child: Text(
-                              movieCast.name,
-                              overflow: TextOverflow.fade,
-                              maxLines: 1,
-                              style:
-                                  Theme.of(context).textTheme.vulcanBodyText2,
-                            ),
-                          ),
-                          Center(
-                            child: Text(
-                              movieCast.character,
-                              overflow: TextOverflow.fade,
-                              maxLines: 1,
-                              style: Theme.of(context).textTheme.bodySmall,
-                            ),
-                          ),
-                        ],
-                      ),
+          return Container(
+            height: Sizes.dimen_200.h,
+            child: ListView.builder(
+              scrollDirection: Axis.horizontal,
+              itemCount: state.movieCasts.length,
+              itemBuilder: (context, index) {
+                final movieCast = state.movieCasts[index];
+                return SizedBox(
+                  height: Sizes.dimen_150.h,
+                  width: Sizes.dimen_160.w,
+                  child: Card(
+                    elevation: 1,
+                    margin: EdgeInsets.symmetric(
+                      horizontal: Sizes.dimen_8.w,
+                      vertical: Sizes.dimen_4.h,
                     ),
-                  );
-                },
-              ),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(Sizes.dimen_8.w),
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Expanded(
+                          child: ClipRRect(
+                            borderRadius:
+                                BorderRadius.vertical(top: Radius.circular(8)),
+                            child: movieCast.profilePath == null
+                                ? Container(
+                                    height: Sizes.dimen_150.h,
+                                    width: Sizes.dimen_150.w,
+                                    decoration: BoxDecoration(
+                                      image: DecorationImage(
+                                        image:
+                                            AssetImage(AssetConstants.noImage),
+                                      ),
+                                    ),
+                                  )
+                                : CachedNetworkImage(
+                                    height: Sizes.dimen_150.h,
+                                    width: Sizes.dimen_160.w,
+                                    imageUrl:
+                                        '${ApiConstants.BASE_IMAGE_URL}${movieCast.profilePath}',
+                                    fit: BoxFit.cover,
+                                  ),
+                          ),
+                        ),
+                        Center(
+                          child: Text(
+                            movieCast.name,
+                            overflow: TextOverflow.fade,
+                            maxLines: 1,
+                            style: Theme.of(context).textTheme.vulcanBodyText2,
+                          ),
+                        ),
+                        Center(
+                          child: Text(
+                            movieCast.character,
+                            overflow: TextOverflow.fade,
+                            maxLines: 1,
+                            style: Theme.of(context).textTheme.bodySmall,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                );
+              },
             ),
           );
         }
