@@ -24,12 +24,12 @@ class MovieModel extends MovieEntity {
   final bool? adult;
   final String? overview;
   @JsonKey(name: 'poster_path')
-  final String posterPath;
+  final String? posterPath;
   final double? popularity;
   final String? mediaType;
 
   MovieModel({
-    required this.posterPath,
+    this.posterPath,
     this.video,
     this.voteAverage,
     this.overview,

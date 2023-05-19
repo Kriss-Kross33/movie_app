@@ -55,7 +55,7 @@ class _MoviePageViewerState extends State<MoviePageViewer> {
             index: index,
             pageController: _pageController,
             movieId: movie.id,
-            posterPath: movie.posterPath,
+            posterPath: movie.posterPath!,
           );
         },
         pageSnapping: true,

@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 
 class MovieEntity extends Equatable {
-  final String posterPath;
+  final String? posterPath;
   final int id;
   final String? backdropPath;
   final String title;
@@ -10,7 +10,7 @@ class MovieEntity extends Equatable {
   final String? overview;
 
   MovieEntity({
-    required this.posterPath,
+    this.posterPath,
     required this.id,
     required this.backdropPath,
     required this.title,

@@ -31,7 +31,7 @@ class MovieListViewBuilder extends StatelessWidget {
           return MovieTabCardWidget(
             movieId: movie.id,
             title: movie.title,
-            posterPath: movie.posterPath,
+            posterPath: movie.posterPath!,
           );
         },
       ),
