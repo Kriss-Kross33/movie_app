@@ -9,4 +9,3 @@ export 'observers/observers.dart';
 export 'screenutil/screenutil.dart';
 export 'themes/theme_text.dart';
 export 'usecases/usecase.dart';
-export 'wiredash/wiredash_widget.dart';

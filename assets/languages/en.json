@@ -13,5 +13,6 @@
     "checkNetwork": "Please check your internet connection and tap the retry button",
     "noMovies": "Sorry, no movies under this section",
     "cast": "Cast",
-    "watchTrailers": "Watch Trailers"
+    "watchTrailers": "Watch Trailers",
+    "noMoviesFound": "No movies found for this query"
 }

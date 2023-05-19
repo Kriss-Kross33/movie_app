@@ -16,4 +16,5 @@ class TranslationConstants {
   static const String NO_MOVIES = "noMovies";
   static const String CAST = "cast";
   static const String WATCH_TRAILERS = "watchTrailers";
+  static const String NO_MOVIES_FOUND = "noMoviesFound";
 }

@@ -13,6 +13,6 @@
     "checkNetwork": "Verifique su conexión a Internet y toque el botón de reintentar",
     "noMovies": "Lo siento, no hay películas en esta sección.",
     "cast": "Emitir",
-    "watchTrailers": "Ver tráilers"
-
+    "watchTrailers": "Ver tráilers",
+    "noMoviesFound": "No se encontraron películas para esta consulta"
 }

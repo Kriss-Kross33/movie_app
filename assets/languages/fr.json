@@ -13,7 +13,8 @@
     "checkNetwork": "Veuillez vérifier votre connexion Internet et appuyez sur le bouton Réessayer",
     "noMovies": "Désolé, pas de films dans cette section",
     "cast": "Équipe",
-    "watchTrailers": "Montre bandes-annonces"
+    "watchTrailers": "Montre bandes-annonces",
+    "noMoviesFound": "Aucun film trouvé pour cette requête"
 }
 
 
