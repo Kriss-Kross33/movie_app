@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:movie_app/src/core/widgets/button.dart';
 import 'package:movie_app/src/features/movie_detail/domain/domain.dart';
 import 'package:movie_app/src/features/movie_detail/presentation/blocs/blocs.dart';
 
+import '../../../../common/common.dart';
 import '../../../../core/core.dart';
 import '../pages/pages.dart';
 

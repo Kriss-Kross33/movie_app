@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:movie_app/src/core/app_color/app_color.dart';
-import 'package:movie_app/src/core/constants/size_constants.dart';
-
-import '../extensions/size_extension.dart';
-import '../extensions/string_extensions.dart';
+import 'package:movie_app/src/core/core.dart';
 
 class Button extends StatelessWidget {
   final String text;
