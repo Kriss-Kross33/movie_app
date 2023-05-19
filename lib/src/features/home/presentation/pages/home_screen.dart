@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:movie_app/src/core/di/service_locator.dart';
-import 'package:movie_app/src/core/widgets/app_error_widget/app_error_widget.dart';
-import 'package:movie_app/src/features/home/presentation/blocs/movie_backdrop_bloc/movie_backdrop_bloc.dart';
-import 'package:movie_app/src/features/home/presentation/blocs/movie_carousel_bloc/movie_carousel_bloc.dart';
-import 'package:movie_app/src/features/home/presentation/blocs/movie_tabbed_bloc/movie_tabbed_bloc.dart';
-import 'package:movie_app/src/features/home/presentation/widgets/custom_navigation_drawer/custom_navigation_drawer.dart';
-import 'package:movie_app/src/features/home/presentation/widgets/movie_carousel/movie_carousel_widget.dart';
-import 'package:movie_app/src/features/home/presentation/widgets/movie_tab/movie_tab_widget.dart';
+import 'package:movie_app/src/features/home/presentation/blocs/blocs.dart';
+
+import '../../../../common/common.dart';
+import '../../../../core/core.dart';
+import '../../../search_movie/search_movie.dart';
+import '../widgets/widgets.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -18,12 +16,14 @@ class _HomeScreenState extends State<HomeScreen> {
   late MovieCarouselBloc movieCarouselBloc;
   late MovieBackdropBloc movieBackdropBloc;
   late MovieTabbedBloc movieTabbedBloc;
+  late SearchMovieBloc searchMovieBloc;
 
   @override
   void dispose() {
     movieCarouselBloc.close();
     movieBackdropBloc.close();
     movieTabbedBloc.close();
+    searchMovieBloc.close();
     super.dispose();
   }
 
@@ -33,6 +33,7 @@ class _HomeScreenState extends State<HomeScreen> {
     movieTabbedBloc = locator<MovieTabbedBloc>();
     movieBackdropBloc = movieCarouselBloc.movieBackdropBloc;
     movieCarouselBloc.add(CarouselLoadEvent());
+    searchMovieBloc = locator<SearchMovieBloc>();
     super.initState();
   }
 
@@ -48,6 +49,9 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         BlocProvider<MovieTabbedBloc>(
           create: (context) => movieTabbedBloc,
+        ),
+        BlocProvider<SearchMovieBloc>(
+          create: (context) => searchMovieBloc,
         ),
       ],
       child: Scaffold(
