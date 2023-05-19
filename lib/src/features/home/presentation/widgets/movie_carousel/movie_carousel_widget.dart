@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:movie_app/src/common/movie/domain/entities/movie_entity.dart';
 import 'package:movie_app/src/common/widgets/movie_app_bar.dart';
+import 'package:movie_app/src/features/features.dart';
 import 'package:movie_app/src/features/home/presentation/widgets/logo_widget.dart';
 import 'package:movie_app/src/features/home/presentation/widgets/movie_carousel/movie_backdrop_widget.dart';
 import 'package:movie_app/src/features/home/presentation/widgets/movie_carousel/movie_data_widget.dart';
@@ -48,7 +50,14 @@ class MovieCarouselWidget extends StatelessWidget {
                   color: Colors.white,
                   size: Sizes.dimen_20.h,
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  showSearch(
+                    context: context,
+                    delegate: CustomSearchDelegate(
+                      searchMovieBloc: context.read<SearchMovieBloc>(),
+                    ),
+                  );
+                },
               ),
             ),
             MoviePageViewer(movies: movies, initialPage: index),
