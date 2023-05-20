@@ -3,6 +3,8 @@ import 'dart:convert';
 import 'package:http/http.dart';
 import 'package:movie_app/src/core/constants/api_constants.dart';
 
+import '../errors/exceptions/exceptions.dart';
+
 class ApiClient {
   final Client _client;
 
@@ -28,7 +30,9 @@ class ApiClient {
       print(responseBody);
       return responseBody;
     } else {
-      throw Exception(response.reasonPhrase);
+      throw ServerException(
+        errorMessage: response.reasonPhrase ?? 'Unknown error form server',
+      );
     }
   }
 

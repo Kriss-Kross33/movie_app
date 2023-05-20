@@ -4,7 +4,8 @@ import 'package:dartz/dartz.dart';
 import 'package:movie_app/src/common/movie/data/data.dart';
 import 'package:movie_app/src/common/movie/domain/entities/movie_entity.dart';
 import 'package:movie_app/src/common/movie/domain/repositories/movie_repository.dart';
-import 'package:movie_app/src/core/errors/failures/failures.dart';
+
+import '../../../../core/core.dart';
 
 typedef Future<List<MovieEntity>> _MovieCategoryChooser();
 
@@ -40,7 +41,7 @@ class MovieRepositoryImpl extends MovieRepository {
       return Right(movies);
     } on SocketException {
       return Left(Failure(failureType: FailureType.network));
-    } on Exception {
+    } on ServerException {
       return Left(Failure(failureType: FailureType.api));
     }
   }
