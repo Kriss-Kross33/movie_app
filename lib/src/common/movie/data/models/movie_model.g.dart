@@ -11,7 +11,7 @@ MovieModel _$MovieModelFromJson(Map<String, dynamic> json) => MovieModel(
       video: json['video'] as bool?,
       voteAverage: (json['vote_average'] as num?)?.toDouble(),
       overview: json['overview'] as String?,
-      releaseDate: json['releaseDate'] as String?,
+      releaseDate: json['release_date'] as String?,
       voteCount: json['vote_count'] as int?,
       adult: json['adult'] as bool?,
       backdropPath: json['backdrop_path'] as String?,
@@ -22,7 +22,6 @@ MovieModel _$MovieModelFromJson(Map<String, dynamic> json) => MovieModel(
       originalLanguage: json['original_language'] as String?,
       originalTitle: json['original_title'] as String?,
       popularity: (json['popularity'] as num?)?.toDouble(),
-      mediaType: json['mediaType'] as String?,
     );
 
 Map<String, dynamic> _$MovieModelToJson(MovieModel instance) =>
@@ -32,7 +31,7 @@ Map<String, dynamic> _$MovieModelToJson(MovieModel instance) =>
       'vote_count': instance.voteCount,
       'vote_average': instance.voteAverage,
       'title': instance.title,
-      'releaseDate': instance.releaseDate,
+      'release_date': instance.releaseDate,
       'original_language': instance.originalLanguage,
       'original_title': instance.originalTitle,
       'genre_ids': instance.genreIds,
@@ -41,5 +40,4 @@ Map<String, dynamic> _$MovieModelToJson(MovieModel instance) =>
       'overview': instance.overview,
       'poster_path': instance.posterPath,
       'popularity': instance.popularity,
-      'mediaType': instance.mediaType,
     };

@@ -12,6 +12,7 @@ class MovieModel extends MovieEntity {
   @JsonKey(name: 'vote_average')
   final double? voteAverage;
   final String title;
+  @JsonKey(name: 'release_date')
   final String? releaseDate;
   @JsonKey(name: 'original_language')
   final String? originalLanguage;
@@ -26,7 +27,6 @@ class MovieModel extends MovieEntity {
   @JsonKey(name: 'poster_path')
   final String? posterPath;
   final double? popularity;
-  final String? mediaType;
 
   MovieModel({
     this.posterPath,
@@ -43,7 +43,6 @@ class MovieModel extends MovieEntity {
     this.originalLanguage,
     this.originalTitle,
     this.popularity,
-    this.mediaType,
   }) : super(
           id: id,
           posterPath: posterPath,
