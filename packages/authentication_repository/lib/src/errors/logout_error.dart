@@ -1,0 +1,1 @@
+class LogoutError implements Exception {}

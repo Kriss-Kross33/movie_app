@@ -1,0 +1,15 @@
+name: authentication_repository
+description: Dart packages that manages user authentication
+
+environment: 
+  sdk: ">=3.0.0 <4.0.0"
+  flutter: ^3.10.0
+
+dependencies:
+  equatable: ^2.0.5
+  firebase_auth: ^4.6.1
+  firebase_core: ^2.13.0
+  flutter:
+    sdk: flutter
+  google_sign_in: ^6.1.0
+  
