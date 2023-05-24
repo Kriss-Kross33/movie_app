@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "570840996559",
+    "project_id": "kriss-movie-app",
+    "storage_bucket": "kriss-movie-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:570840996559:android:4371117b0937684aaff5ba",
+        "android_client_info": {
+          "package_name": "com.example.movie_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "570840996559-e8srm1idleor9nouldncmtae16buv190.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD7YICnyoOurCerjK4Sq0xlynRyIXcbjkA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "570840996559-e8srm1idleor9nouldncmtae16buv190.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "570840996559-fpnv410312g5sn1adbpddaf43nq4j78p.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.movieApp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
