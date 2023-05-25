@@ -29,4 +29,9 @@ extension ThemeTextExtension on TextTheme {
   TextStyle? get greyCaption => bodySmall?.copyWith(
         color: Colors.grey,
       );
+
+  TextStyle? get violetBodyLargeText => bodyLarge?.copyWith(
+        color: AppColor.violet,
+        fontWeight: FontWeight.w500,
+      );
 }
