@@ -6,8 +6,7 @@ import 'package:movie_app/src/core/constants/language_constants.dart';
 import 'package:movie_app/src/core/di/service_locator.dart';
 import 'package:movie_app/src/core/localizations/app_localizations.dart';
 import 'package:movie_app/src/core/themes/theme_text.dart';
-import 'package:movie_app/src/features/home/presentation/pages/home_screen.dart';
-import 'package:movie_app/src/features/languages/presentation/bloc/language_bloc/language_bloc.dart';
+import 'package:movie_app/src/features/features.dart';
 
 import 'common/common.dart';
 import 'core/screenutil/screen_util_widget.dart';
@@ -70,7 +69,7 @@ class _MovieAppState extends State<MovieApp> {
                     GlobalMaterialLocalizations.delegate,
                     GlobalWidgetsLocalizations.delegate,
                   ],
-                  home: HomeScreen(),
+                  home: LoginScreen(),
                 ),
               );
             }
