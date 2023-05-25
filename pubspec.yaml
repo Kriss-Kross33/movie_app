@@ -11,22 +11,33 @@ environment:
   sdk: '>=3.0.0 <4.0.0'
 
 dependencies:
+  authentication_repository:
+    path: packages/authentication_repository
   flutter:
     sdk: flutter
 
   cupertino_icons: ^1.0.5
+  cached_network_image: ^3.2.3
   dartz: ^0.10.1
   equatable: ^2.0.5
+  firebase_core: ^2.13.0
   flutter_bloc: ^8.1.2
+  cloud_firestore: ^4.7.1
+  formz: ^0.6.0
+  formz_input:
+    path: packages/formz_input
   flutter_localizations:
     sdk:  flutter
+  font_awesome_flutter: ^10.4.0
   get_it: ^7.6.0
   google_fonts: ^4.0.4
   http: ^0.13.6
+  isar: ^3.1.0+1
+  isar_flutter_libs: ^3.1.0+1
   json_annotation: ^4.8.1
   meta: ^1.9.1
+  path_provider: ^2.0.15
   websafe_svg: ^3.0.0+5
-  cached_network_image: ^3.2.3
   wiredash: ^1.7.0
   youtube_player_flutter: ^8.1.2
 
@@ -34,6 +45,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   build_runner: ^2.4.4
+  isar_generator: ^3.1.0+1
   json_serializable: ^6.6.2
   mockito: ^5.4.0
   
