@@ -43,3 +43,4 @@ app.*.map.json
 
 # sensitive
 lib/src/core/constants/api_constants.dart
+lib/firebase_options.dart
