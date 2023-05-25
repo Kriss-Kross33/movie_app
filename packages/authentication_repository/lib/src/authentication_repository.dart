@@ -1,4 +1,5 @@
 import 'package:authentication_repository/src/models/user_model.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart' as firebase_auth;
 import 'package:flutter/foundation.dart';
 import 'package:google_sign_in/google_sign_in.dart';
@@ -8,11 +9,14 @@ import 'errors/errors.dart';
 class AuthenticationRepository {
   final firebase_auth.FirebaseAuth? _firebaseAuth;
   final GoogleSignIn? _googleSignIn;
+  final FirebaseFirestore _cloudFireStore;
 
   AuthenticationRepository({
     firebase_auth.FirebaseAuth? firebaseAuth,
+    FirebaseFirestore? cloudFireStore,
     GoogleSignIn? googleSignIn,
   })  : _firebaseAuth = firebaseAuth ?? firebase_auth.FirebaseAuth.instance,
+        _cloudFireStore = cloudFireStore ?? FirebaseFirestore.instance,
         _googleSignIn = googleSignIn ?? GoogleSignIn.standard();
 
   Future<void> loginWithEmailAndPassword(
@@ -65,12 +69,20 @@ class AuthenticationRepository {
   Future<void> signup({
     required String email,
     required String password,
+    required String username,
   }) async {
     try {
-      await _firebaseAuth?.createUserWithEmailAndPassword(
+      final userRef = _cloudFireStore.collection('users');
+      final firebaseUser = await _firebaseAuth?.createUserWithEmailAndPassword(
         email: email,
         password: password,
       );
+      if (firebaseUser != null) {
+        userRef.doc(firebaseUser.user!.uid).set({
+          'username': username,
+          'email': email,
+        });
+      }
     } on firebase_auth.FirebaseAuthException catch (e) {
       throw SignupWithEmailAndPasswordError(errorMessage: e.toString());
     } catch (e) {
