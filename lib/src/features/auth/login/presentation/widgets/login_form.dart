@@ -92,38 +92,43 @@ class LoginForm extends StatelessWidget {
           SizedBox(
             height: Sizes.dimen_30.h,
           ),
-          Container(
-            padding: EdgeInsets.symmetric(horizontal: Sizes.dimen_10.w),
-            height: 60,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(30),
-              border: ContainerBorderGradient(
-                gradient: LinearGradient(
-                  colors: [
-                    AppColor.royalBlue,
-                    AppColor.violet,
-                  ],
+          InkWell(
+            onTap: () {
+              context.read<LoginCubit>().onLoginWithGoogleButtonPressed();
+            },
+            child: Container(
+              padding: EdgeInsets.symmetric(horizontal: Sizes.dimen_10.w),
+              height: 60,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(30),
+                border: ContainerBorderGradient(
+                  gradient: LinearGradient(
+                    colors: [
+                      AppColor.royalBlue,
+                      AppColor.violet,
+                    ],
+                  ),
+                  borderWidth: 2,
                 ),
-                borderWidth: 2,
               ),
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                CachedNetworkImage(
-                  imageUrl:
-                      'http://pngimg.com/uploads/google/google_PNG19635.png',
-                  width: Sizes.dimen_30.w,
-                  height: Sizes.dimen_30.w,
-                ),
-                SizedBox(
-                  width: Sizes.dimen_8.w,
-                ),
-                Text(
-                  'Sign in with Google',
-                  style: Theme.of(context).textTheme.titleMedium,
-                )
-              ],
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  CachedNetworkImage(
+                    imageUrl:
+                        'http://pngimg.com/uploads/google/google_PNG19635.png',
+                    width: Sizes.dimen_30.w,
+                    height: Sizes.dimen_30.w,
+                  ),
+                  SizedBox(
+                    width: Sizes.dimen_8.w,
+                  ),
+                  Text(
+                    'Sign in with Google',
+                    style: Theme.of(context).textTheme.titleMedium,
+                  )
+                ],
+              ),
             ),
           ),
           SizedBox(
