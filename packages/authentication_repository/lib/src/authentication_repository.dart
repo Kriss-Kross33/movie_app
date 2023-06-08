@@ -40,6 +40,8 @@ class AuthenticationRepository {
     });
   }
 
+  UserModel get currentUser => UserModel.empty;
+
   bool get isWeb => kIsWeb;
 
   Future<void> loginWithGoogle() async {
