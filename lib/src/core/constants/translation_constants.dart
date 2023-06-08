@@ -1,6 +1,4 @@
 class TranslationConstants {
-  TranslationConstants._();
-
   static const String FAVOURITEMOVIES = 'favouriteMovies';
   static const String LANGUAGES = 'languages';
   static const String FEEDBACK = 'feedback';

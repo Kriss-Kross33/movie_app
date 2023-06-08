@@ -10,6 +10,10 @@ class UserModel extends Equatable {
 
   static const UserModel empty = UserModel(id: '');
 
+  bool get isEmpty => this == UserModel.empty;
+
+  bool get isNotEmpty => this != UserModel.empty;
+
   final String id;
   final String? username;
   final String? email;
