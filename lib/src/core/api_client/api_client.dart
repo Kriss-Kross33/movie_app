@@ -21,18 +21,26 @@ class ApiClient {
     final fullPath = getFullPath(path, params);
     print('FULLPATH====> $fullPath');
     final uri = Uri.parse(fullPath);
-    final response = await _client.get(
-      uri,
-      headers: headers,
-    );
-    if (response.statusCode == 200) {
-      final responseBody = jsonDecode(response.body);
-      print(responseBody);
-      return responseBody;
-    } else {
-      throw ServerException(
-        errorMessage: response.reasonPhrase ?? 'Unknown error form server',
+    try {
+      final response = await _client.get(
+        uri,
+        headers: headers,
       );
+      if (response.statusCode == 200) {
+        final responseBody = jsonDecode(response.body);
+        print(responseBody);
+        return responseBody;
+      } else {
+        throw ServerException(
+          errorMessage: response.reasonPhrase ?? 'Unknown error form server',
+        );
+      }
+    } on ServerException {
+      throw ServerException(
+        errorMessage: 'Unknown error form server',
+      );
+    } catch (e) {
+      throw ServerException(errorMessage: e.toString());
     }
   }
 
