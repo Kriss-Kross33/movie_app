@@ -26,4 +26,16 @@ void main() {
     //* assert
     verify(mockClient.get(any, headers: anyNamed('headers')));
   });
+
+  test('should throw [ServerException] when an error occurs', () async {
+    //* arrange
+    when(mockClient.get(any, headers: anyNamed('headers')))
+        .thenAnswer((_) async => Response('', 400));
+    //* act
+    final result = apiClient.get;
+    // print('RESULT: $result');
+    //* assert
+
+    expect(() => result(''), throwsA(isA<ServerException>()));
+  });
 }
