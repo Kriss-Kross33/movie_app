@@ -42,162 +42,173 @@ class LoginForm extends StatelessWidget {
             );
         }
       },
-      child: Column(
-        children: [
-          _EmailTextField(),
-          SizedBox(
-            height: Sizes.dimen_10.h,
-          ),
-          _PasswordTextField(),
-          Align(
-            alignment: Alignment.centerRight,
-            child: InkWell(
-              onTap: () {},
-              child: Text(
-                'Forgot password?',
-                style: Theme.of(context).textTheme.violetBodyLargeText,
-              ),
-            ),
-          ),
-          SizedBox(
-            height: Sizes.dimen_20.h,
-          ),
-          _LoginButton(
-            width: MediaQuery.of(context).size.width,
-            height: 50,
-          ),
-          SizedBox(
-            height: Sizes.dimen_30.h,
-          ),
-          Row(
+      child: LayoutBuilder(builder: (context, constraints) {
+        return Container(
+          width: constraints.maxWidth,
+          child: Column(
             children: [
-              Expanded(
-                child: Divider(
-                  height: 1,
-                  color: AppColor.royalBlue,
-                ),
+              _EmailTextField(),
+              SizedBox(
+                height: Sizes.dimen_10.h,
               ),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: Sizes.dimen_10.w),
-                child: Text('Or'),
-              ),
-              Expanded(
-                child: Divider(
-                  height: 1,
-                  color: AppColor.royalBlue,
-                ),
-              ),
-            ],
-          ),
-          SizedBox(
-            height: Sizes.dimen_30.h,
-          ),
-          InkWell(
-            onTap: () {
-              context.read<LoginCubit>().onLoginWithGoogleButtonPressed();
-            },
-            child: Container(
-              padding: EdgeInsets.symmetric(horizontal: Sizes.dimen_10.w),
-              height: 60,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(30),
-                border: ContainerBorderGradient(
-                  gradient: LinearGradient(
-                    colors: [
-                      AppColor.royalBlue,
-                      AppColor.violet,
-                    ],
+              _PasswordTextField(),
+              Align(
+                alignment: Alignment.centerRight,
+                child: InkWell(
+                  onTap: () {},
+                  child: Text(
+                    'Forgot password?',
+                    style: Theme.of(context).textTheme.violetBodyLargeText,
                   ),
-                  borderWidth: 2,
                 ),
               ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+              SizedBox(
+                height: Sizes.dimen_20.h,
+              ),
+              _LoginButton(
+                width: MediaQuery.of(context).size.width,
+                height: 50,
+              ),
+              SizedBox(
+                height: Sizes.dimen_30.h,
+              ),
+              Row(
                 children: [
-                  CachedNetworkImage(
-                    imageUrl:
-                        'http://pngimg.com/uploads/google/google_PNG19635.png',
-                    width: Sizes.dimen_30.w,
-                    height: Sizes.dimen_30.w,
+                  Expanded(
+                    child: Divider(
+                      height: 1,
+                      color: AppColor.royalBlue,
+                    ),
                   ),
-                  SizedBox(
-                    width: Sizes.dimen_8.w,
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: Sizes.dimen_10.w),
+                    child: Text('Or'),
                   ),
-                  Text(
-                    'Sign in with Google',
-                    style: Theme.of(context).textTheme.titleMedium,
-                  )
+                  Expanded(
+                    child: Divider(
+                      height: 1,
+                      color: AppColor.royalBlue,
+                    ),
+                  ),
                 ],
               ),
-            ),
-          ),
-          SizedBox(
-            height: Sizes.dimen_20.h,
-          ),
-          Container(
-            height: 60,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(30),
-              border: ContainerBorderGradient(
-                gradient: LinearGradient(
-                  colors: [
-                    AppColor.royalBlue,
-                    AppColor.violet,
+              SizedBox(
+                height: Sizes.dimen_30.h,
+              ),
+              InkWell(
+                onTap: () {
+                  context.read<LoginCubit>().onLoginWithGoogleButtonPressed();
+                },
+                child: Container(
+                  padding: EdgeInsets.symmetric(horizontal: Sizes.dimen_10.w),
+                  height: 60,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(30),
+                    border: ContainerBorderGradient(
+                      gradient: LinearGradient(
+                        colors: [
+                          AppColor.royalBlue,
+                          AppColor.violet,
+                        ],
+                      ),
+                      borderWidth: 2,
+                    ),
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      CachedNetworkImage(
+                        imageUrl:
+                            'http://pngimg.com/uploads/google/google_PNG19635.png',
+                        width: Sizes.dimen_30.w,
+                        height: Sizes.dimen_30.w,
+                        errorWidget: (context, _, __) {
+                          return Icon(
+                            FontAwesomeIcons.google,
+                            color: Colors.redAccent,
+                          );
+                        },
+                      ),
+                      SizedBox(
+                        width: Sizes.dimen_8.w,
+                      ),
+                      Text(
+                        'Sign in with Google',
+                        style: Theme.of(context).textTheme.titleMedium,
+                      )
+                    ],
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: Sizes.dimen_20.h,
+              ),
+              Container(
+                height: 60,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(30),
+                  border: ContainerBorderGradient(
+                    gradient: LinearGradient(
+                      colors: [
+                        AppColor.royalBlue,
+                        AppColor.violet,
+                      ],
+                    ),
+                    borderWidth: 2,
+                  ),
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(
+                      FontAwesomeIcons.facebook,
+                      color: Colors.blueAccent,
+                    ),
+                    SizedBox(
+                      width: Sizes.dimen_8.w,
+                    ),
+                    Text(
+                      'Sign in with Facebook',
+                      style: Theme.of(context).textTheme.titleMedium,
+                    )
                   ],
                 ),
-                borderWidth: 2,
               ),
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Icon(
-                  FontAwesomeIcons.facebook,
-                  color: Colors.blueAccent,
-                ),
-                SizedBox(
-                  width: Sizes.dimen_8.w,
-                ),
-                Text(
-                  'Sign in with Facebook',
-                  style: Theme.of(context).textTheme.titleMedium,
-                )
-              ],
-            ),
-          ),
-          SizedBox(
-            height: Sizes.dimen_10.h,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                'Don\'t have an account? ',
-                style: Theme.of(context)
-                    .textTheme
-                    .bodyLarge
-                    ?.copyWith(color: Colors.white),
+              SizedBox(
+                height: Sizes.dimen_10.h,
               ),
-              TextButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) {
-                        return SignupScreen();
-                      },
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    'Don\'t have an account? ',
+                    style: Theme.of(context)
+                        .textTheme
+                        .bodyLarge
+                        ?.copyWith(color: Colors.white),
+                  ),
+                  TextButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return SignupScreen();
+                          },
+                        ),
+                      );
+                    },
+                    child: Text(
+                      'Create one?',
+                      style: Theme.of(context).textTheme.violetBodyLargeText,
                     ),
-                  );
-                },
-                child: Text(
-                  'Create one?',
-                  style: Theme.of(context).textTheme.violetBodyLargeText,
-                ),
+                  ),
+                ],
               ),
             ],
           ),
-        ],
-      ),
+        );
+      }),
     );
   }
 }
